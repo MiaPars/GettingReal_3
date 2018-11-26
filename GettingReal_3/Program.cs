@@ -11,6 +11,7 @@ namespace GettingReal_3
         static void Main(string[] args)
         {
             Console.WriteLine("bla bla");
+            Console.WriteLine("1");
         }
     }
 }
