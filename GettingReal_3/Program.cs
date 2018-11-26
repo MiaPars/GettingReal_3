@@ -11,6 +11,7 @@ namespace GettingReal_3
         static void Main(string[] args)
         {
             Console.WriteLine("Vælg punkt mellem 1-4");
+            Console.WriteLine("abe");
             int switchCase = Convert.ToInt32(Console.ReadLine());
             switch (switchCase)
             {
@@ -34,6 +35,9 @@ namespace GettingReal_3
                     Console.WriteLine("4. Luk ned");
                     //hej
                     break;
+
             }
         }
-}
+
+
+        
