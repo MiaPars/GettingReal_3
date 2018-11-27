@@ -10,6 +10,9 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
+            List<Employee> employees = new List<Employee>();
+
+
             Console.WriteLine("Vælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
             Console.WriteLine("2: Se afsluttede vagter for denne måned");
@@ -23,11 +26,17 @@ namespace GettingReal_3
                     Console.Clear();
                     Console.WriteLine("1. Registrér timer");
 
-                    
                     Store nørregade = new Store();
                     Store thomasBThrigesGade = new Store();
 
-                    
+                    foreach (Employee item in employees)
+                    {
+                        Console.WriteLine(item);
+                        Console.WriteLine();
+                    }
+
+
+
 
                     break;
 
