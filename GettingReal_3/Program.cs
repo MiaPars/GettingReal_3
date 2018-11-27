@@ -23,8 +23,11 @@ namespace GettingReal_3
                     Console.Clear();
                     Console.WriteLine("1. Registrér timer");
 
+                    
                     Store nørregade = new Store();
                     Store thomasBThrigesGade = new Store();
+
+                    
 
                     break;
 
