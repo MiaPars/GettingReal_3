@@ -32,8 +32,9 @@ namespace GettingReal_3
 
                 case 4:
                     Console.WriteLine("4. Luk ned");
-                    //hej
+                   
                     break;
             }
         }
+    }
 }
