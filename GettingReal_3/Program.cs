@@ -22,7 +22,7 @@ namespace GettingReal_3
                 case 1:
                     Console.Clear();
                     Console.WriteLine("1. Registrér timer");
-
+                    
 
                     break;
 
@@ -30,18 +30,19 @@ namespace GettingReal_3
                     Console.Clear();
                     Console.WriteLine("2. Se afsluttede vagter for denne måned");
 
+
                     break;
 
                 case 3:
                     Console.Clear();
                     Console.WriteLine("3. Administration");
 
+
                     break;
 
                 case 4:
-                    Console.Clear();
-                    Console.WriteLine("4. Luk ned");
-                    //hej
+                    Environment.Exit(0);
+                    
                     break;
 
             }
