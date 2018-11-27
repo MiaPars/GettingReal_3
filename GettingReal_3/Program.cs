@@ -11,7 +11,7 @@ namespace GettingReal_3
         static void Main(string[] args)
         {
             List<Employee> employees = new List<Employee>();
-
+            
 
             Console.WriteLine("Vælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
@@ -34,8 +34,12 @@ namespace GettingReal_3
                         Console.WriteLine(item);
                         Console.WriteLine();
                     }
+                    Console.WriteLine("skriv navn:");
+                    string s = Console.ReadLine();
+                    
+                    
 
-
+                    
 
 
                     break;
