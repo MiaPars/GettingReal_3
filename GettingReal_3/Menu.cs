@@ -39,13 +39,9 @@ namespace GettingReal_3
                     Console.Clear();
                     Console.WriteLine("3. Administration");
 
-                    Console.WriteLine("Indtast kodeord");
-                    string input = Console.ReadLine();
+                    
 
-                    if (Admin.AdminPass.Equals(input))
-                    {
-
-                    }
+                    Admin.AdminPass();
 
                     break;
 
