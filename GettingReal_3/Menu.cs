@@ -67,6 +67,12 @@ namespace GettingReal_3
             }
             Console.WriteLine("skriv navn:");
             string s = Console.ReadLine();
+
+            DateTime start = new DateTime();
+
+
+
         }
+        
     }
 }
