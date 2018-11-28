@@ -20,16 +20,19 @@ namespace GettingReal_3
         //TimeSpan total = toTime - fromTime;
         //int hours = total.Hours;
         //int minutes = total.Minutes;
-        public void timer()
+        public void timer(string s, string e)
         {
-            DateTime start = new DateTime(08, 30, 00);
+            DateTime time = e.Convert.ToDateTime("02, 02, 2018, 08, 30, 00");
+            DateTime start = new DateTime(s);
 
             Console.WriteLine(start);
-            DateTime end = new DateTime();
+            DateTime end = new DateTime(e);
+            Console.WriteLine(end);
+
             //DateTime start = DateTime.Parse("08:30");
             //DateTime end = DateTime.Parse("12:30");
             Console.WriteLine((end - start).TotalHours);
-
+            Console.ReadKey();
         }
     }
 }
