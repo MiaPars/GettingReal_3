@@ -9,11 +9,12 @@ namespace GettingReal_3
     public class Store
     {
         List<string> storeList = new List<string>();
-
+        
         public void AddStore()
         {
             storeList.Add("nørregade");
             storeList.Add("thomas gade");
+
         }
         public bool CheckStore(string store)
         {
