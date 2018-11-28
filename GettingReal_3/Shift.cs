@@ -20,15 +20,16 @@ namespace GettingReal_3
         //TimeSpan total = toTime - fromTime;
         //int hours = total.Hours;
         //int minutes = total.Minutes;
-        public void timer()
+        public void timer(string start, string end)
         {
-            DateTime start = new DateTime(08, 30, 00);
+            // string skal angives: 00/00/00
+            DateTime kage = DateTime.Parse(start);
+            DateTime kagetis = DateTime.Parse(end);
+            //TimeSpan kagemand = DateTime.Now.Subtract(kage);
+            TimeSpan interval = kagetis-kage;
 
-            Console.WriteLine(start);
-            DateTime end = new DateTime();
-            //DateTime start = DateTime.Parse("08:30");
-            //DateTime end = DateTime.Parse("12:30");
-            Console.WriteLine((end - start).TotalHours);
+            Console.WriteLine(interval.TotalHours.ToString());
+            Console.ReadKey();
 
         }
     }

@@ -28,6 +28,9 @@ namespace GettingReal_3
                     Console.WriteLine("Registrer Timer: ");
                     break;
 
+
+                 
+
                 case 2:
                     Console.Clear();
                     Console.WriteLine("2. Se afsluttede vagter for denne måned");
