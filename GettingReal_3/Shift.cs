@@ -22,7 +22,7 @@ namespace GettingReal_3
         //int minutes = total.Minutes;
         public void timer(string s, string e)
         {
-            DateTime time = e.Convert.ToDateTime("02, 02, 2018, 08, 30, 00");
+            DateTime time = e.Parse.ToDateTime("02, 02, 2018, 08, 30, 00");
             DateTime start = new DateTime(s);
 
             Console.WriteLine(start);

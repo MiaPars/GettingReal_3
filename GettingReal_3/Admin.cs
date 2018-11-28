@@ -34,14 +34,24 @@ namespace GettingReal_3
 
             if (dd == 0)
             {
-                Console.Write("\nMere end 3 loginforsøg, prøv igen senere\n\n");
+                Console.WriteLine("Mere end 3 loginforsøg, prøv igen senere");
             }
             else
             if (dd == 1)
             {
-                Console.Write("\nKodeord godkendt!\n\n");
+                Console.WriteLine("Kodeord godkendt!");
+
             }
+            Console.ReadKey();
         }
+
+
+
+        //Gemme fra C# til Excel
+        //Kopieret fra nettet
+        //OdbcConnection connection = new OdbcConnection(@"Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq=" + xlsFilePath + "; ReadOnly=False; DefaultDir=" + xlsDir + ";");
+        //then you can create a IDbCommand like this: IDbCommand command = connection.CreateCommand();
+
     }
 
 }
