@@ -12,7 +12,7 @@ namespace GettingReal_3
         public static void AdminPass()
         {
             string password;
-            int counter = 0, dd = 0;
+            int counter = 0, pw = 0;
             
             do
             {
@@ -20,29 +20,30 @@ namespace GettingReal_3
                 password = Console.ReadLine();
                 if (password == "1234")
                 {
-                    dd = 1;
+                    pw = 1;
                     counter = 3;
                 }
 
                 else
                 {
-                    dd = 0;
+                    pw = 0;
                     counter++;
                 }
             }
             while (password != "1234" && (counter != 3));
 
-            if (dd == 0)
+            if (pw == 0)
             {
                 Console.WriteLine("Mere end 3 loginforsøg, prøv igen senere");
+                Environment.Exit(0);
             }
             else
-            if (dd == 1)
+            if (pw == 1)
             {
                 Console.WriteLine("Kodeord godkendt!");
 
             }
-            Console.ReadKey();
+            
         }
 
 

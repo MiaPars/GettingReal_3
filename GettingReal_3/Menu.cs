@@ -40,8 +40,9 @@ namespace GettingReal_3
                     Console.WriteLine("Administration");
                                         
                     Admin.AdminPass();
+                    Console.Clear();
 
-                    
+                    Console.WriteLine("Vælg mellem 1-5");
                     Console.WriteLine("1. Eksportér liste til Excel");
                     Console.WriteLine("2. Tjek om vagter er taget");
                     Console.WriteLine("3. Tilføj medarbejder");
