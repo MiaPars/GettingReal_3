@@ -8,5 +8,8 @@ namespace GettingReal_3
 {
     public class Employee
     {
+        int workinHours;
+        int fullWorkingHours;
+
     }
 }
