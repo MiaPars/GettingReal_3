@@ -33,21 +33,52 @@ namespace GettingReal_3
 
                 case 2:
                     Console.Clear();
-                    Console.WriteLine("2. Se afsluttede vagter for denne måned");
+                    Console.WriteLine("Se afsluttede vagter for denne måned");
 
 
                     break;
 
                 case 3:
                     Console.Clear();
-                    Console.WriteLine("3. Administration");
+                    Console.WriteLine("Administration");
+                                        
+                    Admin.AdminPass();
+                    Console.Clear();
 
-                    Console.WriteLine("Indtast kodeord");
-                    string input = Console.ReadLine();
+                    Console.WriteLine("Vælg mellem 1-5");
+                    Console.WriteLine("1. Eksportér liste til Excel");
+                    Console.WriteLine("2. Tjek om vagter er taget");
+                    Console.WriteLine("3. Tilføj medarbejder");
+                    Console.WriteLine("4. Slet medarbejder");
+                    Console.WriteLine("5. Luk ned");
 
-                    if (Admin.AdminPass.Equals(input))
+
+                    switch (switchCase)
                     {
+                        case 1:
+                            Console.WriteLine("Eksportér liste til Excel");
 
+                            break;
+
+                        case 2:
+                            Console.WriteLine("Tjek om vagter er taget");
+
+                            break;
+
+                        case 3:
+                            Console.WriteLine("Tilføj medarbejder");
+
+                            break;
+
+                        case 4:
+                            Console.WriteLine("Slet medarbejder");
+
+                            break;
+
+                        case 5:
+                            Console.WriteLine("Luk ned");
+                            Environment.Exit(0);
+                            break;
                     }
 
                     break;
@@ -70,6 +101,12 @@ namespace GettingReal_3
             }
             Console.WriteLine("skriv navn:");
             string s = Console.ReadLine();
+
+            DateTime start = new DateTime();
+
+
+
         }
+        
     }
 }
