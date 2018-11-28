@@ -8,8 +8,11 @@ namespace GettingReal_3
 {
     public class Admin
     {
-            
-        public static void AdminPass()
+        public void AdminEmployee()
+        {
+
+        }    
+        public void AdminPass()
         {
             string password;
             int counter = 0, pw = 0;

@@ -21,17 +21,17 @@ namespace GettingReal_3
         //TimeSpan total = toTime - fromTime;
         //int hours = total.Hours;
         //int minutes = total.Minutes;
-        public void timer(string start, string end)
+        public void timer(string startDateString, string endDateString)
         {
             // string skal angives: 00/00/00
-            DateTime kage = DateTime.Parse(start);
-            DateTime kagetis = DateTime.Parse(end);
+            DateTime startShift = DateTime.Parse(startDateString);
+            DateTime endShift = DateTime.Parse(endDateString);
             //TimeSpan kagemand = DateTime.Now.Subtract(kage);
-            TimeSpan interval = kagetis-kage;
+            TimeSpan interval = endShift - startShift;
 
             Console.WriteLine(interval.TotalHours.ToString());
             Console.ReadKey();
-
+            
         }
     }
 }
