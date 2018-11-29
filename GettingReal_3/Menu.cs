@@ -8,7 +8,6 @@ namespace GettingReal_3
 {
     class Menu
     {
-        List<string> employees = new List<string>();
         public void Show()
         {
             List<Employee> employees = new List<Employee>();
@@ -53,8 +52,8 @@ namespace GettingReal_3
                     Console.WriteLine("4. Slet medarbejder");
                     Console.WriteLine("5. Luk ned");
 
-
-                    switch (switchCase)
+                    int s = Convert.ToInt32(Console.ReadLine());
+                    switch (s)
                     {
                         case 1:
                             Console.WriteLine("Eksportér liste til Excel");
@@ -69,11 +68,15 @@ namespace GettingReal_3
                         case 3:
                             Console.WriteLine("Tilføj medarbejder");
 
+                            Employee employee = new Employee();
+
+                            employee.AddEmployee();
+                            
                             break;
 
                         case 4:
                             Console.WriteLine("Slet medarbejder");
-
+                            
                             break;
 
                         case 5:
@@ -93,9 +96,10 @@ namespace GettingReal_3
         public void RegistrerTimer()
         {
             Console.Clear();
-            
 
-            foreach (string item in employees)
+            Employee r = new Employee();
+
+            foreach (Employee item in r.employees)
             {
                 Console.WriteLine(item);
                 Console.WriteLine();
@@ -108,6 +112,7 @@ namespace GettingReal_3
 
 
         }
+        
         
     }
 }

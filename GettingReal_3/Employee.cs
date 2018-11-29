@@ -8,7 +8,7 @@ namespace GettingReal_3
 {
     public class Employee
     {
-        List<Employee> employees = new List<Employee>();
+        public List<Employee> employees = new List<Employee>();
 
         public string Navn
         {
@@ -27,12 +27,18 @@ namespace GettingReal_3
             set;
         }
 
-        public void AddEmployee(string Navn, string Addresse, string Email)
+        public void AddEmployee()
         {
             Employee medarbejder = new Employee();
-            medarbejder.Navn = Navn;
-            medarbejder.Addresse = Addresse;
-            medarbejder.Email = Email;
+
+            Console.WriteLine("Navn?");            
+            medarbejder.Navn = Console.ReadLine();
+
+            Console.WriteLine("Addresse?");
+            medarbejder.Addresse = Console.ReadLine();
+
+            Console.WriteLine("Email?");
+            medarbejder.Email = Console.ReadLine();
 
             employees.Add(medarbejder);
         }
