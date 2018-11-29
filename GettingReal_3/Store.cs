@@ -8,53 +8,37 @@ namespace GettingReal_3
 {
     public class Store
     {
-        List<string> storeList = new List<string>();
-        
-        public void AddStore()
+        public List<Employee> employees = new List<Employee>();
+        public string Name {
+            get;
+            set;
+        }
+        public void ShowEmployeeList()
         {
-            storeList.Add("nørregade");
-            storeList.Add("thomas gade");
-
+            foreach (Employee item in employees)
+            {
+                Console.WriteLine(item);
+            }
         }
-        public bool CheckStore(string store)
+        public void AddEmployee()
         {
-            foreach (string item in storeList)
-            {
-                if (store.Equals(item))
-                {
-                    return true;
-                }
-                
-            }
-            return false;
+            Employee medarbejder = new Employee();
 
-        }
-        public string storeName {
+            Console.WriteLine("Navn?");
+            medarbejder.Navn = Console.ReadLine();
 
-            get
-            {
-                return storeName;
-            }
-            set
-            {
-                foreach(string item in storeList)
-                {
-                    if (storeName.Equals(item))
-                    {
-                        storeName = value;
-                    }
-                    else
-                    {
-                        Console.WriteLine("du har intastet forkert butiknavn");
-                        Menu m = new Menu();
-                        m.Show();
-                        
-                    }
-                }
-            }
+            Console.WriteLine("Addresse?");
+            medarbejder.Addresse = Console.ReadLine();
 
+            Console.WriteLine("Email?");
+            medarbejder.Email = Console.ReadLine();
+
+            employees.Add(medarbejder);
         }
 
-        
+        public void RemoveEmployee()
+        {
+
+        }
     }
 }

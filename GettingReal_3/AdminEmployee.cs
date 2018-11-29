@@ -6,17 +6,11 @@ using System.Threading.Tasks;
 
 namespace GettingReal_3
 {
-    public class Admin
+    public class AdminEmployee
     {
-        Store butik = new Store();
-        public void addEmployee()
+        public void RegistrerTimer()
         {
-            butik.AddEmployee();
+
         }
-
-            
-
     }
-
 }
-
