@@ -10,11 +10,8 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
-
             Program prog = new Program();
             prog.Run();
-            //Shift hej = new Shift();
-            //hej.timer("2018/03/13 08:30", "2018/03/14 08:45"); DET VIRKERRRRRRR
         }
         public void Run()
         {

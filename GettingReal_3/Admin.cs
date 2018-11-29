@@ -16,7 +16,6 @@ namespace GettingReal_3
             
             do
             {
-                Console.WriteLine("Input a password: ");
                 password = Console.ReadLine();
                 if (password == "1234")
                 {

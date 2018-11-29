@@ -10,9 +10,6 @@ namespace GettingReal_3
     {
         public void Show()
         {
-            List<Employee> employees = new List<Employee>();
-
-
             Console.WriteLine("Vælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
             Console.WriteLine("2: Se afsluttede vagter for denne måned");
@@ -25,22 +22,20 @@ namespace GettingReal_3
                 case 1:
 
                     Console.WriteLine("Registrer Timer: ");
+                    RegistrerTimer();
                     break;
-
-
-                 
 
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Se afsluttede vagter for denne måned");
-
-
+                    AfsluttedeVagter();
                     break;
 
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Administration");
-                                        
+                    Console.WriteLine("Input a password: ");
+
                     Admin.AdminPass();
 
                     Console.Clear();
@@ -52,38 +47,7 @@ namespace GettingReal_3
                     Console.WriteLine("4. Slet medarbejder");
                     Console.WriteLine("5. Luk ned");
 
-                    int s = Convert.ToInt32(Console.ReadLine());
-                    switch (s)
-                    {
-                        case 1:
-                            Console.WriteLine("Eksportér liste til Excel");
-
-                            break;
-
-                        case 2:
-                            Console.WriteLine("Tjek om vagter er taget");
-
-                            break;
-
-                        case 3:
-                            Console.WriteLine("Tilføj medarbejder");
-
-                            Employee employee = new Employee();
-
-                            employee.AddEmployee();
-                            
-                            break;
-
-                        case 4:
-                            Console.WriteLine("Slet medarbejder");
-                            
-                            break;
-
-                        case 5:
-                            Console.WriteLine("Luk ned");
-                            Environment.Exit(0);
-                            break;
-                    }
+                    Administration();
 
                     break;
 
@@ -107,10 +71,47 @@ namespace GettingReal_3
             Console.WriteLine("skriv navn:");
             string s = Console.ReadLine();
 
-            DateTime start = new DateTime();
+        }
 
+        public void AfsluttedeVagter()
+        {
 
+        }
 
+        public void Administration()
+        {
+            int s = Convert.ToInt32(Console.ReadLine());
+            switch (s)
+            {
+                case 1:
+                    Console.WriteLine("Eksportér liste til Excel");
+
+                    break;
+
+                case 2:
+                    Console.WriteLine("Tjek om vagter er taget");
+
+                    break;
+
+                case 3:
+                    Console.WriteLine("Tilføj medarbejder");
+
+                    Employee employee = new Employee();
+
+                    employee.AddEmployee();
+
+                    break;
+
+                case 4:
+                    Console.WriteLine("Slet medarbejder");
+
+                    break;
+
+                case 5:
+                    Console.WriteLine("Luk ned");
+                    Environment.Exit(0);
+                    break;
+            }
         }
         
         
