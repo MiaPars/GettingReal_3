@@ -43,6 +43,7 @@ namespace GettingReal_3
                     Console.WriteLine("Administration");
                                         
                     Admin.AdminPass();
+
                     Console.Clear();
 
                     Console.WriteLine("Vælg mellem 1-5");

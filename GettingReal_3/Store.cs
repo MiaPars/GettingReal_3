@@ -8,7 +8,6 @@ namespace GettingReal_3
 {
     public class Store
     {
-
-        
+                
     }
 }

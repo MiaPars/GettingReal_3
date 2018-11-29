@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GettingReal_3
 {
-    public static class Admin
+    public class Admin
     {
             
         public static void AdminPass()
@@ -45,8 +45,6 @@ namespace GettingReal_3
             }
             
         }
-
-
 
         //Gemme fra C# til Excel
         //Kopieret fra nettet
