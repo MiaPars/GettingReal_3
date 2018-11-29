@@ -15,6 +15,7 @@ namespace GettingReal_3
             storeList.Add("nørregade");
             storeList.Add("thomas gade");
         }
+
         public bool CheckStore(string store)
         {
             foreach (string item in storeList)
@@ -25,8 +26,8 @@ namespace GettingReal_3
                 }
             }
             return false;
-
         }
+
         public void ShowStores()
         {
             for (int i = 0; i < storeList.Count; i++)
