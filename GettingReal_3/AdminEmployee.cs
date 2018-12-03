@@ -8,30 +8,21 @@ namespace GettingReal_3
 {
     public class AdminEmployee
     {
-        Shift a = new Shift();
-        Store s = new Store();
-        public void RegistrerTimer()
-        {          
-            s.AddEmployee();
+        Shift vagt = new Shift();
+        Store butik = new Store();
+        public void RegistrerTimer(Employee employee,  Store store)
+        {
+            Console.WriteLine("antal timer arbejdet: ");
 
-            Console.WriteLine("Indtast navn");
-            string input = Console.ReadLine();
+            Console.WriteLine("angiv starttid: ");
+            string startDate = Console.ReadLine();
+            Console.WriteLine("angiv sluttid: ");
+            string endDate = Console.ReadLine();
 
-            s.CheckEmployee(input);
-            Console.WriteLine(s.CheckEmployee(input));
+            TimeSpan s = vagt.Timer(startDate, endDate);
+            Console.WriteLine(employee.TotalHoursWorked = s);
+
             
-            Console.Clear();
-
-            Console.WriteLine("Skriv butiknavn");
-
-            a.AddStore();
-            a.ShowStores();
-
-            string butikInput = Console.ReadLine();
-
-            a.CheckStore(butikInput);
-
-            Console.WriteLine(a.CheckStore(butikInput));
         }
     }
 }

@@ -8,24 +8,27 @@ namespace GettingReal_3
 {
     public class Shift
     {
-        List<string> storeList = new List<string>();
+        List<Store> storeList = new List<Store>();
 
         public void AddStore()
         {
-            storeList.Add("noerregade");
-            storeList.Add("thomas gade");
+            storeList = new List<Store>
+            {
+                new Store("norregade"),
+                new Store("thomasgade"),
+            };
         }
 
-        public bool CheckStore(string store)
+        public Store CheckStore(string store)
         {
-            foreach (string item in storeList)
+            foreach (Store item in storeList)
             {
-                if (store.Equals(item))
+                if (item.StoreName.Equals(store))
                 {
-                    return true;
+                    return item;
                 }
             }
-            return false;
+            return null;
         }
 
         public void ShowStores()

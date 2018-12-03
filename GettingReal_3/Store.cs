@@ -9,11 +9,18 @@ namespace GettingReal_3
     public class Store
     {
         public List<Employee> employees = new List<Employee>();
-        public string Name
+
+        public Store(string butikNavnConstructor)
+        {
+            StoreName = butikNavnConstructor;
+        }
+        public Store() { }
+        public string StoreName
         {
             get;
             set;
         }
+
         public void ShowEmployeeList()
         {
             foreach (Employee item in employees)
@@ -50,20 +57,20 @@ namespace GettingReal_3
 
         }
 
-        public bool CheckEmployee(string input)
+        public Employee CheckEmployee(string input)
         {
             foreach (Employee item in employees)
             {
                 if (input.Equals(item.Name))
                 {
-                    return true;
+                    return item;
                 }
-                else if (!input.Equals(item.Name))
-                {
-                    throw new Exception("prøv igen");
-                }
+                //else if (!input.Equals(item.Name))
+                //{
+                //    throw new Exception("prøv igen");
+                //}
             }
-            return false;
+            return null;
 
         }
     }

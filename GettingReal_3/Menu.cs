@@ -11,6 +11,8 @@ namespace GettingReal_3
     {
         Admin adm = new Admin();
         AdminEmployee admEmp = new AdminEmployee();
+        Shift shift = new Shift();
+        Store store = new Store();
 
         public void Show()
         {
@@ -76,8 +78,40 @@ namespace GettingReal_3
         public void RegistrerTimer()
         {
             Console.Clear();
+            // fake employees for nu
+            store.AddEmployee();
+
+            Console.Write("Indtast navn: ");
+            string input = Console.ReadLine();
+
+            while (store.CheckEmployee(input) == null)
+            {
+                Console.Clear();
+                Console.WriteLine("du har intastet forkert navn, prøv igen: ");
+                input = Console.ReadLine();
+            }
             
-            admEmp.RegistrerTimer();
+            Console.Clear();
+            Console.WriteLine("du har valgt: " + input);
+
+            Console.WriteLine("Butikker: ");
+
+            // midlertidlige falske butikker
+            shift.AddStore();
+            shift.ShowStores();
+
+            Console.WriteLine("skriv butik navn: ");
+            string butikInput = Console.ReadLine();
+
+            while (shift.CheckStore(butikInput) == null)
+            {
+                Console.WriteLine("Du har intastet forkert butik navn, prøv igen: ");
+                butikInput = Console.ReadLine();
+            }
+
+            Console.WriteLine("du har valgt " + butikInput + "butikken");
+
+            admEmp.RegistrerTimer(store.CheckEmployee(input), shift.CheckStore(butikInput));
             
 
         }
