@@ -9,7 +9,8 @@ namespace GettingReal_3
     public class Store
     {
         public List<Employee> employees = new List<Employee>();
-        public string Name {
+        public string Name
+        {
             get;
             set;
         }
@@ -28,9 +29,7 @@ namespace GettingReal_3
                 new Employee("hans", "nejgade 21", "1223@gmail.com"),
                 new Employee("Rudy", "måskevej", "123123123@gmail.com")
             };
-
-
-
+            
 
             //Employee medarbejder = new Employee();
 
@@ -59,8 +58,13 @@ namespace GettingReal_3
                 {
                     return true;
                 }
+                else if (!input.Equals(item.Name))
+                {
+                    throw new Exception("prøv igen");
+                }
             }
             return false;
+
         }
     }
 }

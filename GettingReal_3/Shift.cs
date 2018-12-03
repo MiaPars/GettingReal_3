@@ -12,7 +12,7 @@ namespace GettingReal_3
 
         public void AddStore()
         {
-            storeList.Add("nørregade");
+            storeList.Add("noerregade");
             storeList.Add("thomas gade");
         }
 

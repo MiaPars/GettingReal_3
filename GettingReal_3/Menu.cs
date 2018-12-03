@@ -22,7 +22,7 @@ namespace GettingReal_3
             Console.WriteLine(@"|  \/  ||___|| \| || | | |");
             Console.WriteLine(@"| |\/| ||__| | \' || |_| |");
             Console.WriteLine(@"|_|  |_||___||_|\_|\ ___ /");
-
+            
 
             Console.WriteLine("\nVælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
@@ -50,7 +50,7 @@ namespace GettingReal_3
                 case 3:
                     Console.Clear();
                     Console.WriteLine("Administration");
-                    Console.WriteLine("Input a password: ");
+                    Console.WriteLine("Indtast administratorkode: ");
 
                     AdminPass();
 
@@ -104,7 +104,8 @@ namespace GettingReal_3
 
                 case 3:
                     Console.WriteLine("Tilføj medarbejder");
-                    
+
+                    adm.AddEmployee2();
 
                     break;
 

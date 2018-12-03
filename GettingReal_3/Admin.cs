@@ -9,14 +9,16 @@ namespace GettingReal_3
     public class Admin
     {
         Store store = new Store();
-        public void addEmployee()
+        public void AddEmployee2()
         {
             store.AddEmployee();
         }
 
-            
+        public void RemoveEmployee2()
+        {
+            store.RemoveEmployee();
+        }
 
     }
-
 }
 

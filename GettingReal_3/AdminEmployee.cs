@@ -19,7 +19,7 @@ namespace GettingReal_3
 
             s.CheckEmployee(input);
             Console.WriteLine(s.CheckEmployee(input));
-
+            
             Console.Clear();
 
             Console.WriteLine("Skriv butiknavn");
