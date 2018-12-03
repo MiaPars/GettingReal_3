@@ -8,13 +8,13 @@ namespace GettingReal_3
 {
     public class Employee
     {
-        public string Navn
+        public string Name
         {
             get;
             set;
         }
 
-        public string Addresse
+        public string Address
         {
             get;
             set;
@@ -25,7 +25,20 @@ namespace GettingReal_3
             set;
         }
 
-        
+        public Employee(string name, string address, string email)
+        {
+            Name = name;
+            Address = address;
+            Email = email;
+        }
+
+        private TimeSpan hoursWorked = TimeSpan.Parse("00:00");
+
+        public TimeSpan HoursWorked
+        {
+            get;
+            set;
+        }
 
     }
 }

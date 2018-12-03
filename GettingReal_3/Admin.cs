@@ -8,10 +8,10 @@ namespace GettingReal_3
 {
     public class Admin
     {
-        Store butik = new Store();
+        Store store = new Store();
         public void addEmployee()
         {
-            butik.AddEmployee();
+            store.AddEmployee();
         }
 
             

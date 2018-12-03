@@ -32,19 +32,18 @@ namespace GettingReal_3
         {
             for (int i = 0; i < storeList.Count; i++)
             {
-                Console.WriteLine(i + " : " + storeList[i]);
+                Console.WriteLine(i + 1 + ": " + storeList[i]);
             }
         }
-        public void timer(string startDateString, string endDateString)
+        public TimeSpan Timer(string startDateString, string endDateString)
         {
             // string skal angives: 00/00/00
-            DateTime startShift = DateTime.Parse(startDateString);
+            DateTime startShift = DateTime.Parse(startDateString);//skal gemmes
             DateTime endShift = DateTime.Parse(endDateString);
             //TimeSpan kagemand = DateTime.Now.Subtract(kage);
             TimeSpan interval = endShift - startShift;
 
-            Console.WriteLine(interval.TotalHours.ToString());
-            Console.ReadKey();
+            return interval;
 
             //public TimeSpan GetHourSpan(DateTime fromTime, DateTime toTime);
             //{

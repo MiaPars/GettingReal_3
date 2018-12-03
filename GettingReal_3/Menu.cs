@@ -27,6 +27,8 @@ namespace GettingReal_3
 
                     Console.WriteLine("Registrer Timer: ");
                     RegistrerTimer();
+
+                    
                     break;
 
                 case 2:
@@ -66,8 +68,7 @@ namespace GettingReal_3
             Console.Clear();
             
             admEmp.RegistrerTimer();
-            Console.WriteLine("skriv navn:");
-            string s = Console.ReadLine();
+            
 
         }
 
