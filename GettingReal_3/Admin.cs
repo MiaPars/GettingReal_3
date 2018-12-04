@@ -9,17 +9,17 @@ namespace GettingReal_3
     public class Admin
     {
         Store store = new Store();
-        public void AddEmployee2()
+        public void AddEmployee()
         {
             store.AddEmployee();
         }
 
-        public void RemoveEmployee2()
+        public void RemoveEmployee()
         {
             store.RemoveEmployee();
         }
 
-        //public void EksportExcel()
+        //public void ExportExcel()
         //{
         //    Gemme fra C# til Excel
         //    Kopieret fra nettet

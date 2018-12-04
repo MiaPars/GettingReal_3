@@ -147,7 +147,7 @@ namespace GettingReal_3
                 case 3:
                     Console.WriteLine("Tilføj medarbejder");
 
-                    adm.AddEmployee2();
+                    adm.AddEmployee();
 
                     break;
 
