@@ -47,7 +47,7 @@ namespace GettingReal_3
                 case 1:
 
                     Console.WriteLine("Registrer Timer: ");
-                    RegistrerTimer();
+                    RegisterHoursMenu();
 
                     
                     break;
@@ -55,7 +55,7 @@ namespace GettingReal_3
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Se afsluttede vagter for denne måned");
-                    AfsluttedeVagter();
+                    EndedShifts();
                     break;
 
                 case 3:
@@ -84,7 +84,7 @@ namespace GettingReal_3
                     break;
             }
         }
-        public void RegistrerTimer()
+        public void RegisterHoursMenu()
         {
             Console.Clear();
             // fake employees for nu
@@ -120,12 +120,11 @@ namespace GettingReal_3
 
             Console.WriteLine("du har valgt " + butikInput + "butikken");
 
-            admEmp.RegistrerTimer(store.CheckEmployee(input), shift.CheckStore(butikInput));
+            admEmp.RegisterHours(store.CheckEmployee(input), shift.CheckStore(butikInput));
             
-
         }
 
-        public void AfsluttedeVagter()
+        public void EndedShifts()
         {
 
         }

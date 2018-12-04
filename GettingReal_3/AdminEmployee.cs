@@ -10,7 +10,7 @@ namespace GettingReal_3
     {
         Shift vagt = new Shift();
         Store butik = new Store();
-        public void RegistrerTimer(Employee employee,  Store store)
+        public void RegisterHours(Employee employee,  Store store)
         {
             Console.WriteLine("antal timer arbejdet: ");
 
