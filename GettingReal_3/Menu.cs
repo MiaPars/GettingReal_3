@@ -26,11 +26,12 @@ namespace GettingReal_3
                 case 1:
 
                     Console.WriteLine("Registrer Timer: ");
+                    Console.Clear();
+
                     break;
 
 
-                 
-
+      
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Se afsluttede vagter for denne måned");
@@ -52,7 +53,7 @@ namespace GettingReal_3
                     Console.WriteLine("4. Slet medarbejder");
                     Console.WriteLine("5. Luk ned");
 
-
+                     
                     switch (switchCase)
                     {
                         case 1:
@@ -107,6 +108,6 @@ namespace GettingReal_3
 
 
         }
-        
+
     }
 }
