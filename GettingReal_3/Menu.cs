@@ -15,16 +15,23 @@ namespace GettingReal_3
         Store store = new Store();
 
         public void Show()
+
         {
-            Console.WriteLine(@"  *             )         ");
-            Console.WriteLine(@" (  `          /(         ");
-            Console.WriteLine(@" )\))(   (    )\())    (  ");
-            Console.WriteLine(@"((_)()\  )\  ((_)\     )\ ");
-            Console.WriteLine(@"(_()((_)((_) (_((_) _ ((_)");
-            Console.WriteLine(@"|  \/  ||___|| \| || | | |");
-            Console.WriteLine(@"| |\/| ||__| | \' || |_| |");
-            Console.WriteLine(@"|_|  |_||___||_|\_|\ ___ /");
+            Console.ForegroundColor = ConsoleColor.Red;
             
+
+            Console.WriteLine(@"    *             )         ");
+            Console.WriteLine(@"   (  `          /(         ");
+            Console.WriteLine(@"   )\))(   (    )\())    (  ");
+            Console.WriteLine(@"  ((_)()\  )\  ((_)\     )\ ");
+            Console.WriteLine(@"  (_()((_)((_) (_((_) _ ((_)");
+            Console.WriteLine(@"  |  \/  ||___|| \| || | | |");
+            Console.WriteLine(@"  | |\/| ||__| | \' || |_| |");
+            Console.WriteLine(@"  |_|  |_||___||_|\_|\ ___ /");
+
+            Console.ResetColor();
+
+            Console.WriteLine("------------------------------");
 
             Console.WriteLine("\nVælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
@@ -32,13 +39,15 @@ namespace GettingReal_3
             Console.WriteLine("3: Administration");
             Console.WriteLine("4: Luk ned");
 
+            Console.WriteLine("------------------------------");
+
             int switchCase = Convert.ToInt32(Console.ReadLine());
             switch (switchCase)
             {
                 case 1:
 
                     Console.WriteLine("Registrer Timer: ");
-                    RegistrerTimerMenu();
+                    RegisterHoursMenu();
 
                     
                     break;
@@ -46,7 +55,7 @@ namespace GettingReal_3
                 case 2:
                     Console.Clear();
                     Console.WriteLine("Se afsluttede vagter for denne måned");
-                    AfsluttedeVagter();
+                    EndedShifts();
                     break;
 
                 case 3:
@@ -75,7 +84,7 @@ namespace GettingReal_3
                     break;
             }
         }
-        public void RegistrerTimerMenu()
+        public void RegisterHoursMenu()
         {
             Console.Clear();
             // fake employees for nu
@@ -111,12 +120,11 @@ namespace GettingReal_3
 
             Console.WriteLine("du har valgt " + butikInput + "butikken");
 
-            admEmp.RegistrerTimer(store.CheckEmployee(input), shift.CheckStore(butikInput));
+            admEmp.RegisterHours(store.CheckEmployee(input), shift.CheckStore(butikInput));
             
-
         }
 
-        public void AfsluttedeVagter()
+        public void EndedShifts()
         {
 
         }
@@ -139,7 +147,7 @@ namespace GettingReal_3
                 case 3:
                     Console.WriteLine("Tilføj medarbejder");
 
-                    adm.AddEmployee2();
+                    adm.AddEmployee();
 
                     break;
 
@@ -190,10 +198,7 @@ namespace GettingReal_3
 
         }
 
-        //Gemme fra C# til Excel
-        //Kopieret fra nettet
-        //OdbcConnection connection = new OdbcConnection(@"Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq=" + xlsFilePath + "; ReadOnly=False; DefaultDir=" + xlsDir + ";");
-        //then you can create a IDbCommand like this: IDbCommand command = connection.CreateCommand();
+        
     }
 
 
