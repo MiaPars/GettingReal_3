@@ -19,7 +19,7 @@ namespace GettingReal_3
             store.RemoveEmployee();
         }
 
-        //public void eksporterExcel()
+        //public void EksporterExcel()
         //{
         //    Gemme fra C# til Excel
         //    Kopieret fra nettet

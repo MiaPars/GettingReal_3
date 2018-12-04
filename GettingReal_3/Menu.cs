@@ -20,14 +20,14 @@ namespace GettingReal_3
             Console.ForegroundColor = ConsoleColor.Red;
             
 
-            Console.WriteLine(@"  *             )         ");
-            Console.WriteLine(@" (  `          /(         ");
-            Console.WriteLine(@" )\))(   (    )\())    (  ");
-            Console.WriteLine(@"((_)()\  )\  ((_)\     )\ ");
-            Console.WriteLine(@"(_()((_)((_) (_((_) _ ((_)");
-            Console.WriteLine(@"|  \/  ||___|| \| || | | |");
-            Console.WriteLine(@"| |\/| ||__| | \' || |_| |");
-            Console.WriteLine(@"|_|  |_||___||_|\_|\ ___ /");
+            Console.WriteLine(@"    *             )         ");
+            Console.WriteLine(@"   (  `          /(         ");
+            Console.WriteLine(@"   )\))(   (    )\())    (  ");
+            Console.WriteLine(@"  ((_)()\  )\  ((_)\     )\ ");
+            Console.WriteLine(@"  (_()((_)((_) (_((_) _ ((_)");
+            Console.WriteLine(@"  |  \/  ||___|| \| || | | |");
+            Console.WriteLine(@"  | |\/| ||__| | \' || |_| |");
+            Console.WriteLine(@"  |_|  |_||___||_|\_|\ ___ /");
 
             Console.ResetColor();
 
