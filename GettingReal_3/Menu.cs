@@ -190,10 +190,7 @@ namespace GettingReal_3
 
         }
 
-        //Gemme fra C# til Excel
-        //Kopieret fra nettet
-        //OdbcConnection connection = new OdbcConnection(@"Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq=" + xlsFilePath + "; ReadOnly=False; DefaultDir=" + xlsDir + ";");
-        //then you can create a IDbCommand like this: IDbCommand command = connection.CreateCommand();
+        
     }
 
 
