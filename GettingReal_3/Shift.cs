@@ -8,29 +8,59 @@ namespace GettingReal_3
 {
     public class Shift
     {
-        //public TimeSpan GetHourSpan(DateTime fromTime, DateTime toTime);
-        //{
-        //TimeSpan fromH = TimeSpan.FromHours(fromTime.Hour);
-        //TimeSpan toH = TimeSpan.FromHours(toTime.Hour);
-        //TimeSpan hourTotalSpan = toH.Subtract(fromH);
-        //return hourTotalSpan;
-        //}
+        List<Store> storeList = new List<Store>();
 
-        ////Count the hours and minutes
-        //TimeSpan total = toTime - fromTime;
-        //int hours = total.Hours;
-        //int minutes = total.Minutes;
-        public void timer(string start, string end)
+        public void AddStore()
+        {
+            storeList = new List<Store>
+            {
+                new Store("norregade"),
+                new Store("thomasgade"),
+            };
+        }
+
+        public Store CheckStore(string store)
+        {
+            foreach (Store item in storeList)
+            {
+                if (item.StoreName.Equals(store))
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        public void ShowStores()
+        {
+            for (int i = 0; i < storeList.Count; i++)
+            {
+                Console.WriteLine(i + 1 + ": " + storeList[i]);
+            }
+        }
+        public TimeSpan Timer(string startDateString, string endDateString)
         {
             // string skal angives: 00/00/00
-            DateTime kage = DateTime.Parse(start);
-            DateTime kagetis = DateTime.Parse(end);
+            DateTime startShift = DateTime.Parse(startDateString);//skal gemmes
+            DateTime endShift = DateTime.Parse(endDateString);
             //TimeSpan kagemand = DateTime.Now.Subtract(kage);
-            TimeSpan interval = kagetis-kage;
+            TimeSpan interval = endShift - startShift;
 
-            Console.WriteLine(interval.TotalHours.ToString());
-            Console.ReadKey();
+            return interval;
 
+            //public TimeSpan GetHourSpan(DateTime fromTime, DateTime toTime);
+            //{
+            //TimeSpan fromH = TimeSpan.FromHours(fromTime.Hour);
+            //TimeSpan toH = TimeSpan.FromHours(toTime.Hour);
+            //TimeSpan hourTotalSpan = toH.Subtract(fromH);
+            //return hourTotalSpan;
+            //}
+            //
+
+            ////Count the hours and minutes
+            //TimeSpan total = toTime - fromTime;
+            //int hours = total.Hours;
+            //int minutes = total.Minutes;
         }
     }
 }
