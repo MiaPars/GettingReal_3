@@ -15,7 +15,11 @@ namespace GettingReal_3
         Store store = new Store();
 
         public void Show()
+
         {
+            Console.ForegroundColor = ConsoleColor.Red;
+            
+
             Console.WriteLine(@"  *             )         ");
             Console.WriteLine(@" (  `          /(         ");
             Console.WriteLine(@" )\))(   (    )\())    (  ");
@@ -24,6 +28,8 @@ namespace GettingReal_3
             Console.WriteLine(@"|  \/  ||___|| \| || | | |");
             Console.WriteLine(@"| |\/| ||__| | \' || |_| |");
             Console.WriteLine(@"|_|  |_||___||_|\_|\ ___ /");
+
+            Console.ResetColor();
 
             Console.WriteLine("------------------------------");
 
