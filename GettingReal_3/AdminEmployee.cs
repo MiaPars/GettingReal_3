@@ -10,17 +10,40 @@ namespace GettingReal_3
     {
         Shift vagt = new Shift();
         Store butik = new Store();
+        Employee e = new Employee();
         public void RegistrerTimer(Employee employee,  Store store)
         {
-            Console.WriteLine("antal timer arbejdet: ");
+            
+            Console.Write("Registrer en vagt. Skriv som DD/MM: ");
 
-            Console.WriteLine("angiv starttid: ");
-            string startDate = Console.ReadLine();
-            Console.WriteLine("angiv sluttid: ");
-            string endDate = Console.ReadLine();
+            string day = Console.ReadLine().Substring(0, 2);
+            Console.Write("/");
+            string month = Console.ReadLine().Substring(0,2);
 
-            TimeSpan s = vagt.Timer(startDate, endDate);
-            Console.WriteLine(employee.TotalHoursWorked = s);
+            Console.WriteLine("Dato: " + day + "/" + month );
+
+            int monthSomTal = int.Parse(month);
+            int daySomTal = int.Parse(day);
+
+            string datoVagt = day + "/" + month;
+            if (monthSomTal <= 12 && monthSomTal >=1 && daySomTal <= 31 && daySomTal >= 1)
+            {
+                DateTime dag = DateTime.Parse(datoVagt);
+
+                e.vagtDato = dag;
+                //skal gemmes
+
+            }
+            
+
+            //Console.WriteLine("angiv starttid: ");
+            //string startDate = Console.ReadLine();
+            //Console.WriteLine("angiv sluttid: ");
+            //string endDate = Console.ReadLine();
+
+
+            //TimeSpan s = vagt.Timer(startDate, endDate);
+            //Console.WriteLine(employee.TotalHoursWorked = s);
 
             
         }

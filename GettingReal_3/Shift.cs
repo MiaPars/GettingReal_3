@@ -14,8 +14,8 @@ namespace GettingReal_3
         {
             storeList = new List<Store>
             {
-                new Store("norregade"),
-                new Store("thomasgade"),
+                new Store("ng"),
+                new Store("tbt"),
             };
         }
 
@@ -38,9 +38,15 @@ namespace GettingReal_3
                 Console.WriteLine(i + 1 + ": " + storeList[i]);
             }
         }
+
+
+        
+
+        
         public TimeSpan Timer(string startDateString, string endDateString)
         {
-            // string skal angives: 00/00/00
+            // string skal angives: 00/00/00 00:00:00
+            
             DateTime startShift = DateTime.Parse(startDateString);//skal gemmes
             DateTime endShift = DateTime.Parse(endDateString);
             //TimeSpan kagemand = DateTime.Now.Subtract(kage);

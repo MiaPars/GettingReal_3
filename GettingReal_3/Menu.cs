@@ -38,7 +38,7 @@ namespace GettingReal_3
                 case 1:
 
                     Console.WriteLine("Registrer Timer: ");
-                    RegistrerTimer();
+                    RegistrerTimerMenu();
 
                     
                     break;
@@ -75,7 +75,7 @@ namespace GettingReal_3
                     break;
             }
         }
-        public void RegistrerTimer()
+        public void RegistrerTimerMenu()
         {
             Console.Clear();
             // fake employees for nu

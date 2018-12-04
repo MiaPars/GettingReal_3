@@ -8,17 +8,19 @@ namespace GettingReal_3
 {
     public class Employee
     {
+
         public Employee(string name)
         {
             Name = name;
             
         }
+        public Employee() { }
         public string Name
         {
             get;
             set;
         }
-        
+        public DateTime vagtDato { get; set; }
 
         private TimeSpan timespan = new TimeSpan(00,00,00);
         
