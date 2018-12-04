@@ -32,9 +32,9 @@ namespace GettingReal_3
         {
             employees = new List<Employee>
             {
-                new Employee("Egon", "jagade 21", "123@gmail.com"),
-                new Employee("hans", "nejgade 21", "1223@gmail.com"),
-                new Employee("Rudy", "måskevej", "123123123@gmail.com")
+                new Employee("Egon"),
+                new Employee("hans"),
+                new Employee("Rudy")
             };
             
 

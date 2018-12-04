@@ -8,28 +8,17 @@ namespace GettingReal_3
 {
     public class Employee
     {
-        public Employee(string name, string address, string email)
+        public Employee(string name)
         {
             Name = name;
-            Address = address;
-            Email = email;
+            
         }
         public string Name
         {
             get;
             set;
         }
-
-        public string Address
-        {
-            get;
-            set;
-        }
-        public string Email
-        {
-            get;
-            set;
-        }
+        
 
         private TimeSpan timespan = new TimeSpan(00,00,00);
         
