@@ -13,12 +13,24 @@ namespace GettingReal_3
         Employee e = new Employee();
         public void RegistrerTimer(Employee employee,  Store store)
         {
-            
             Console.Write("Registrer en vagt. Skriv som DD/MM: ");
 
-            string day = Console.ReadLine().Substring(0, 2);
+            string day = "";
+            do
+            {
+                char c = Console.ReadKey().KeyChar;
+                day += c;
+                
+            } while (day.Length < 2);
             Console.Write("/");
-            string month = Console.ReadLine().Substring(0,2);
+            string month = "";
+            do
+            {
+                char c = Console.ReadKey().KeyChar;
+                month += c;
+
+            } while (month.Length < 2);
+            Console.WriteLine();
 
             Console.WriteLine("Dato: " + day + "/" + month );
 

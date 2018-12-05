@@ -8,15 +8,15 @@ namespace GettingReal_3
 {
     public class Admin
     {
-        Store store = new Store();
+        EmployeeRepository RepoEmp = new EmployeeRepository();
         public void AddEmployee()
         {
-            store.AddEmployee();
+            RepoEmp.AddEmployee();
         }
 
         public void RemoveEmployee()
         {
-            store.RemoveEmployee();
+            RepoEmp.RemoveEmployee();
         }
 
         //public void ExportExcel()

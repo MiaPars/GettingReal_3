@@ -13,6 +13,7 @@ namespace GettingReal_3
         AdminEmployee admEmp = new AdminEmployee();
         Shift shift = new Shift();
         Store store = new Store();
+        EmployeeRepository empRepo = new EmployeeRepository();
 
         public void Show()
 
@@ -87,13 +88,13 @@ namespace GettingReal_3
         public void RegisterHoursMenu()
         {
             Console.Clear();
-            // fake employees for nu
-            store.AddEmployee();
 
+            // fake employees for nu
+            empRepo.AddEmployee();
             Console.Write("Indtast navn: ");
             string input = Console.ReadLine();
 
-            while (store.CheckEmployee(input) == null)
+            while (empRepo.CheckEmployee(input) == null)
             {
                 Console.Clear();
                 Console.WriteLine("du har intastet forkert navn, prøv igen: ");
@@ -120,7 +121,7 @@ namespace GettingReal_3
 
             Console.WriteLine("du har valgt " + butikInput + "butikken");
 
-            admEmp.RegisterHours(store.CheckEmployee(input), shift.CheckStore(butikInput));
+            admEmp.RegistrerTimer(empRepo.CheckEmployee(input), shift.CheckStore(butikInput));
             
         }
 
