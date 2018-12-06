@@ -14,6 +14,7 @@ namespace GettingReal_3
         Shift shift = new Shift();
         Store store = new Store();
         EmployeeRepository empRepo = new EmployeeRepository();
+        Program pro = new Program();
 
         public void Show()
 
@@ -49,8 +50,9 @@ namespace GettingReal_3
 
                     Console.WriteLine("Registrer Timer: ");
                     RegisterHoursMenu();
-
                     
+
+
                     break;
 
                 case 2:
@@ -89,7 +91,6 @@ namespace GettingReal_3
         {
             Console.Clear();
 
-            // fake employees for nu
             empRepo.AddEmployee();
             Console.Write("Indtast navn: ");
             string input = Console.ReadLine();
@@ -106,7 +107,6 @@ namespace GettingReal_3
 
             Console.WriteLine("Butikker: ");
 
-            // midlertidlige falske butikker
             shift.AddStore();
             shift.ShowStores();
 
@@ -136,29 +136,32 @@ namespace GettingReal_3
             switch (s)
             {
                 case 1:
-                    Console.WriteLine("Eksportér liste til Excel");
+                    Console.WriteLine("1. Eksportér liste til Excel");
 
                     break;
 
                 case 2:
-                    Console.WriteLine("Tjek om vagter er taget");
+                    Console.WriteLine("2. Tjek om vagter er taget");
 
                     break;
 
                 case 3:
-                    Console.WriteLine("Tilføj medarbejder");
+                    Console.WriteLine("3. Tilføj medarbejder");
 
                     adm.AddEmployee();
-
+                    GoBack();
                     break;
 
                 case 4:
-                    Console.WriteLine("Slet medarbejder");
+                    Console.WriteLine("4. Slet medarbejder");
+
+                    adm.RemoveEmployee();
+                    GoBack();
 
                     break;
 
                 case 5:
-                    Console.WriteLine("Luk ned");
+                    Console.WriteLine("5. Luk ned");
                     Environment.Exit(0);
                     break;
             }
@@ -197,6 +200,18 @@ namespace GettingReal_3
 
             }
 
+        }
+        public void GoBack()
+        {
+            char s = Console.ReadKey().KeyChar;
+            if (s.Equals('b'))
+            {
+                pro.Run();
+            }
+            else
+            {
+                Environment.Exit(0);
+            }
         }
 
         

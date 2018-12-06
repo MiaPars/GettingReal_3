@@ -14,36 +14,34 @@ namespace GettingReal_3
         {
             foreach (Employee item in employees)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Name);
             }
+            
         }
         public void AddEmployee()
         {
-            employees = new List<Employee>
-            {
-                new Employee("Egon"),
-                new Employee("hans"),
-                new Employee("Rudy")
-            };
+            Console.Write("Navn på ny medarbejder: ");
+            string empName = Console.ReadLine();
 
+            employees.Add(new Employee(empName));
 
-            //Employee medarbejder = new Employee();
+            Console.WriteLine("Medarbejder tilføjet");
 
-            //Console.WriteLine("Navn?");
-            //medarbejder.Navn = Console.ReadLine();
-
-            //Console.WriteLine("Addresse?");
-            //medarbejder.Addresse = Console.ReadLine();
-
-            //Console.WriteLine("Email?");
-            //medarbejder.Email = Console.ReadLine();
-
-            //employees.Add(medarbejder);
+            
         }
 
         public void RemoveEmployee()
         {
+            Console.Write("Navn på slet af employee: ");
+            string empName = Console.ReadLine();
 
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if (empName.Equals(employees[i].Name))
+                {
+                    employees.RemoveAt(i);
+                }
+            }
         }
 
         public Employee CheckEmployee(string input)
@@ -54,10 +52,7 @@ namespace GettingReal_3
                 {
                     return item;
                 }
-                //else if (!input.Equals(item.Name))
-                //{
-                //    throw new Exception("prøv igen");
-                //}
+                
             }
             return null;
         }
