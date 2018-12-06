@@ -22,11 +22,9 @@ namespace GettingReal_3
         {
             Console.Write("Navn på ny medarbejder: ");
             string empName = Console.ReadLine();
-
             employees.Add(new Employee(empName));
 
             Console.WriteLine("Medarbejder tilføjet");
-
             
         }
 
@@ -48,11 +46,10 @@ namespace GettingReal_3
         {
             foreach (Employee item in employees)
             {
-                if (input.Equals(item.Name))
+                if (input.Equals(item.Name, StringComparison.OrdinalIgnoreCase))
                 {
                     return item;
                 }
-                
             }
             return null;
         }
