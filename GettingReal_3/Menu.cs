@@ -97,12 +97,12 @@ namespace GettingReal_3
             while (empRepo.CheckEmployee(input) == null)
             {
                 Console.Clear();
-                Console.WriteLine("du har intastet forkert navn, prøv igen: ");
+                Console.WriteLine("Du har intastet forkert navn, prøv igen: ");
                 input = Console.ReadLine();
             }
             
             Console.Clear();
-            Console.WriteLine("du har valgt: " + input);
+            Console.WriteLine("Du har valgt: " + input);
 
             Console.WriteLine("Butikker: ");
 

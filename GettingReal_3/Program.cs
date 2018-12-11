@@ -10,17 +10,17 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
-            Employee e = new Employee();
-            Store s = new Store();
+            //Employee e = new Employee();
+            //Store s = new Store();
 
 
-            AdminEmployee adm = new AdminEmployee();
-            adm.RegistrerTimer(e, s);
+            //AdminEmployee adm = new AdminEmployee();
+            //adm.RegistrerTimer(e, s);
 
-            Console.WriteLine(e.vagtDato);
+            //Console.WriteLine(e.vagtDato);
 
-            //Program prog = new Program();
-            //prog.Run();
+            Program prog = new Program();
+            prog.Run();
         }
         public void Run()
         {

@@ -28,15 +28,16 @@ namespace GettingReal_3
 
 
             //Employee medarbejder = new Employee();
+            
+            //Console.WriteLine("Indtast navn: ");
+            //string newEmployee = Console.ReadLine();
+            //Console.WriteLine(newEmployee);
+            //noget værre kagemand.
+            
 
             //Console.WriteLine("Navn?");
             //medarbejder.Navn = Console.ReadLine();
 
-            //Console.WriteLine("Addresse?");
-            //medarbejder.Addresse = Console.ReadLine();
-
-            //Console.WriteLine("Email?");
-            //medarbejder.Email = Console.ReadLine();
 
             //employees.Add(medarbejder);
         }
@@ -48,12 +49,21 @@ namespace GettingReal_3
 
         public Employee CheckEmployee(string input)
         {
+            string navn = input;
+            string lower = navn.ToLower();
+
             foreach (Employee item in employees)
             {
+                item.Name.ToLower();
+
                 if (input.Equals(item.Name))
                 {
+ 
                     return item;
                 }
+
+              
+
                 //else if (!input.Equals(item.Name))
                 //{
                 //    throw new Exception("prøv igen");
