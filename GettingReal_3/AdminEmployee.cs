@@ -18,22 +18,32 @@ namespace GettingReal_3
             string start = "../..";
 
             StringBuilder sb = new StringBuilder(start);
-
             for (int i = 0; i < sb.Length ; i++)
             {
                 if (sb[i].Equals('/'))
                 {
-                    continue;
+                    i ++;
                 }
+                if (i == 4)
+                {
+                    Console.Clear();
+                    Console.WriteLine("intast et tal: ");
+                    Console.WriteLine(sb);
+
+                    sb[i] = Console.ReadKey(true).KeyChar;
+                    Console.Clear();
+                    Console.WriteLine(sb);
+                    
+                }
+                
 
                 Console.Clear();
                 Console.WriteLine("intast et tal: ");
                 Console.WriteLine(sb);
 
-                sb[i] = Console.ReadKey().KeyChar;
+                sb[i] = Console.ReadKey(true).KeyChar;
                 
             }
-            Console.WriteLine(sb);
 
 
 

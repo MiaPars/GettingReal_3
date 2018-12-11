@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GettingReal_3
 {
-    class SQL
+    public class SQL
     {
     }
 }
