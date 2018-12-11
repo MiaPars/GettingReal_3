@@ -14,60 +14,42 @@ namespace GettingReal_3
         {
             foreach (Employee item in employees)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.Name);
             }
+            
         }
         public void AddEmployee()
         {
-            employees = new List<Employee>
-            {
-                new Employee("Egon"),
-                new Employee("hans"),
-                new Employee("Rudy")
-            };
+            Console.Write("Navn på ny medarbejder: ");
+            string empName = Console.ReadLine();
+            employees.Add(new Employee(empName));
 
-
-            //Employee medarbejder = new Employee();
+            Console.WriteLine("Medarbejder tilføjet");
             
-            //Console.WriteLine("Indtast navn: ");
-            //string newEmployee = Console.ReadLine();
-            //Console.WriteLine(newEmployee);
-            //noget værre kagemand.
-            
-
-            //Console.WriteLine("Navn?");
-            //medarbejder.Navn = Console.ReadLine();
-
-
-            //employees.Add(medarbejder);
         }
 
         public void RemoveEmployee()
         {
+            Console.Write("Navn på slet af employee: ");
+            string empName = Console.ReadLine();
 
+            for (int i = 0; i < employees.Count; i++)
+            {
+                if (empName.Equals(employees[i].Name))
+                {
+                    employees.RemoveAt(i);
+                }
+            }
         }
 
         public Employee CheckEmployee(string input)
         {
-            string navn = input;
-            string lower = navn.ToLower();
-
             foreach (Employee item in employees)
             {
-                item.Name.ToLower();
-
-                if (input.Equals(item.Name))
+                if (input.Equals(item.Name, StringComparison.OrdinalIgnoreCase))
                 {
- 
                     return item;
                 }
-
-              
-
-                //else if (!input.Equals(item.Name))
-                //{
-                //    throw new Exception("prøv igen");
-                //}
             }
             return null;
         }

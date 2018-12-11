@@ -9,9 +9,12 @@ namespace GettingReal_3
     public class Admin
     {
         EmployeeRepository RepoEmp = new EmployeeRepository();
+        Program p = new Program();
         public void AddEmployee()
         {
             RepoEmp.AddEmployee();
+            Console.Clear();
+            p.Run();
         }
 
         public void RemoveEmployee()
