@@ -38,10 +38,6 @@ namespace GettingReal_3
                 Console.WriteLine(i + 1 + ": " + storeList[i]);
             }
         }
-
-
-        
-
         
         public TimeSpan Timer(string startDateString, string endDateString)
         {
@@ -49,24 +45,10 @@ namespace GettingReal_3
             
             DateTime startShift = DateTime.Parse(startDateString);//skal gemmes
             DateTime endShift = DateTime.Parse(endDateString);
-            //TimeSpan kagemand = DateTime.Now.Subtract(kage);
             TimeSpan interval = endShift - startShift;
 
             return interval;
-
-            //public TimeSpan GetHourSpan(DateTime fromTime, DateTime toTime);
-            //{
-            //TimeSpan fromH = TimeSpan.FromHours(fromTime.Hour);
-            //TimeSpan toH = TimeSpan.FromHours(toTime.Hour);
-            //TimeSpan hourTotalSpan = toH.Subtract(fromH);
-            //return hourTotalSpan;
-            //}
-            //
-
-            ////Count the hours and minutes
-            //TimeSpan total = toTime - fromTime;
-            //int hours = total.Hours;
-            //int minutes = total.Minutes;
+            
         }
     }
 }

@@ -8,11 +8,10 @@ namespace GettingReal_3
 {
     public class Employee
     {
-
+        DateTime vagtDato;
         public Employee(string name)
         {
             Name = name;
-            
         }
         public Employee() { }
         public string Name
@@ -20,7 +19,7 @@ namespace GettingReal_3
             get;
             set;
         }
-        public DateTime vagtDato { get; set; }
+        public DateTime VagtDato { get; set; }
 
         private TimeSpan timespan = new TimeSpan(00,00,00);
         
