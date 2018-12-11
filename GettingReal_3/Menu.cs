@@ -19,29 +19,26 @@ namespace GettingReal_3
         public void Show()
 
         {
+            Console.WriteLine("--------------------------------");
             Console.ForegroundColor = ConsoleColor.Red;
-            
-
-            Console.WriteLine(@"    *             )         ");
-            Console.WriteLine(@"   (  `          /(         ");
-            Console.WriteLine(@"   )\))(   (    )\())    (  ");
-            Console.WriteLine(@"  ((_)()\  )\  ((_)\     )\ ");
-            Console.WriteLine(@"  (_()((_)((_) (_((_) _ ((_)");
-            Console.WriteLine(@"  |  \/  ||___|| \| || | | |");
-            Console.WriteLine(@"  | |\/| ||__| | \' || |_| |");
-            Console.WriteLine(@"  |_|  |_||___||_|\_|\ ___ /");
+            Console.WriteLine(@"   _    _  ____  _   _  _   _");
+            Console.WriteLine(@"  |  \/  || ___|| \ | || | | |");
+            Console.WriteLine(@"  |      || |_ ||  \| || | | |");
+            Console.WriteLine(@"  | |\/| ||  _|||     || | | |");
+            Console.WriteLine(@"  | |  | || |__|| |\  || |_| |");
+            Console.WriteLine(@"  |_|  |_||____||_| \_|\_____/");
 
             Console.ResetColor();
+            Console.WriteLine("--------------------------------");
+            Console.WriteLine("\n--------------------------------");
 
-            Console.WriteLine("------------------------------");
-
-            Console.WriteLine("\nVælg punkt mellem 1-4");
+            Console.WriteLine("Vælg punkt mellem 1-4");
             Console.WriteLine("1: Registrér timer");
-            Console.WriteLine("2: Se afsluttede vagter for denne måned");
+            Console.WriteLine("2: Se dine afsluttede vagter");
             Console.WriteLine("3: Administration");
             Console.WriteLine("4: Luk ned");
 
-            Console.WriteLine("------------------------------");
+            Console.WriteLine("--------------------------------");
 
             int switchCase = Convert.ToInt32(Console.ReadLine());
             switch (switchCase)
