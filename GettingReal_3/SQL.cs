@@ -27,6 +27,7 @@ namespace GettingReal_3
                     insertToEmployee.ExecuteNonQuery();
                 }
 
+
                 catch (SqlException e)
                 {
                     Console.WriteLine("Insert to employee fejl" + e.Message);
