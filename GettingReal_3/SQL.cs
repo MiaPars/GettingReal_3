@@ -34,6 +34,7 @@ namespace GettingReal_3
 
                 }
 
+
                 catch (SqlException e)
                 {
                     Console.WriteLine("Insert to employee fejl" + e.Message);

@@ -38,8 +38,12 @@ namespace GettingReal_3
                 if (empName.Equals(employees[i].Name))
                 {
                     employees.RemoveAt(i);
+                    Console.WriteLine(employees[i].Name + "Er nu blevet slettet");
                 }
+            
             }
+
+            
         }
 
         public Employee CheckEmployee(string input)
