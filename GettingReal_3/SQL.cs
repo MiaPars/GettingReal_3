@@ -34,19 +34,20 @@ namespace GettingReal_3
             }
         }
 
-        public void insertToShift(DateTime dato, DateTime startTid, DateTime slutTid)
+        public void insertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand insertToShift = new SqlCommand("InsertToVagt", conn);
-                    insertToShift.CommandType = CommandType.StoredProcedure;
-                    insertToShift.Parameters.Add(new SqlParameter("@date", dato));
-                    insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
-                    insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-                    insertToShift.ExecuteNonQuery();
+                    SqlCommand InsertToShift = new SqlCommand("InsertToVagt", conn);
+                    InsertToShift.CommandType = CommandType.StoredProcedure;
+                    InsertToShift.Parameters.Add(new SqlParameter("@date", dato));
+                    InsertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
+                    InsertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
+                    InsertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
+
                 }
                 catch(SqlException e)
                 {
