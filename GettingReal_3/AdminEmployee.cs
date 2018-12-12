@@ -21,11 +21,11 @@ namespace GettingReal_3
             string message1 = "Registrer start tid. Skriv som TT:MM \n";
             string message2 = "Registrer slut tid. Skriv som TT:MM \n";
 
-            StringBuilder dato = inputDateTime(startString1, ignore, message);
+            StringBuilder dato = InputDateTime(startString1, ignore, message);
             Console.ReadKey();
-            StringBuilder startTid = inputDateTime(startString2, ignore1, message1);
+            StringBuilder startTid = InputDateTime(startString2, ignore1, message1);
             Console.ReadKey();
-            StringBuilder slutTid = inputDateTime(startString2, ignore1, message2);
+            StringBuilder slutTid = InputDateTime(startString2, ignore1, message2);
 
             string day = dato[0].ToString() + dato[1].ToString();
             string month = dato[3].ToString() + dato[4].ToString();
@@ -49,7 +49,7 @@ namespace GettingReal_3
 
             //skal gemmes
         }
-        private StringBuilder inputDateTime(string startString, char ignoreChar, string message)
+        private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
         {
             string start = startString;
 

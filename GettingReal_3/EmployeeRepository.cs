@@ -25,7 +25,7 @@ namespace GettingReal_3
             Console.Write("Navn på ny medarbejder: ");
             string empName = Console.ReadLine();
 
-            sql.insertToEmployee(empName);
+            sql.InsertToEmployee(empName);
 
             //ved ikke om vi har brug for listen
             employees.Add(new Employee(empName));
@@ -44,8 +44,12 @@ namespace GettingReal_3
                 if (empName.Equals(employees[i].Name))
                 {
                     employees.RemoveAt(i);
+                    Console.WriteLine(employees[i].Name + "Er nu blevet slettet");
                 }
+            
             }
+
+            
         }
 
         public Employee CheckEmployee(string input)
