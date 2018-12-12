@@ -25,7 +25,7 @@ namespace GettingReal_3
             Console.Write("Navn på ny medarbejder: ");
             string empName = Console.ReadLine();
 
-            sql.insertToEmployee(empName);
+            sql.InsertToEmployee(empName);
 
             //ved ikke om vi har brug for listen
             employees.Add(new Employee(empName));
