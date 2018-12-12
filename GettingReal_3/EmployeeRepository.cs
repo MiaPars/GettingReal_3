@@ -9,6 +9,8 @@ namespace GettingReal_3
     public class EmployeeRepository
     {
         public List<Employee> employees = new List<Employee>();
+        SQL sql = new SQL();
+
 
         public void ShowEmployeeList()
         {
@@ -22,8 +24,12 @@ namespace GettingReal_3
         {
             Console.Write("Navn på ny medarbejder: ");
             string empName = Console.ReadLine();
-            employees.Add(new Employee(empName));
 
+            sql.InsertToEmployee(empName);
+
+            //ved ikke om vi har brug for listen
+            employees.Add(new Employee(empName));
+            
             Console.WriteLine("Medarbejder tilføjet");
             
         }

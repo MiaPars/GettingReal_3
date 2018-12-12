@@ -13,94 +13,65 @@ namespace GettingReal_3
         Employee e = new Employee();
         public void RegistrerTimer(Employee employee,  Store store)
         {
-            Console.Write("Registrer en vagt. Skriv som DD/MM: \n");
+            string startString1 = "../..";
+            string startString2 = "..:..";
+            char ignore = '/';
+            char ignore1 = ':';
+            string message = "Registrer en vagt. Skriv som DD/MM: \n";
+            string message1 = "Registrer start tid. Skriv som TT:MM \n";
+            string message2 = "Registrer slut tid. Skriv som TT:MM \n";
 
-            string start = "../..";
+            StringBuilder dato = InputDateTime(startString1, ignore, message);
+            Console.ReadKey();
+            StringBuilder startTid = InputDateTime(startString2, ignore1, message1);
+            Console.ReadKey();
+            StringBuilder slutTid = InputDateTime(startString2, ignore1, message2);
+
+            string day = dato[0].ToString() + dato[1].ToString();
+            string month = dato[3].ToString() + dato[4].ToString();
+
+            string datoVagt = dato.ToString();
+
+            int daySomTal = int.Parse(day);
+            int monthSomTal = int.Parse(month);
+
+            if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
+            {
+                DateTime dag = DateTime.Parse(datoVagt);
+                e.VagtDato = dag;
+                //skal gemmes
+            }
+            
+            //tjekker ikke for hvilket tal man sætter ind..
+            TimeSpan s = vagt.Timer(startTid.ToString(), slutTid.ToString());
+
+            employee.TotalHoursWorked = s;
+            //skal gemmes
+        }
+        private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
+        {
+            string start = startString;
 
             StringBuilder sb = new StringBuilder(start);
-            for (int i = 0; i < sb.Length ; i++)
+            for (int i = 0; i < sb.Length; i++)
             {
-                if (sb[i].Equals('/'))
+                if (sb[i].Equals(ignoreChar))
                 {
-                    i ++;
+                    i++;
                 }
-                if (i == 4)
-                {
-                    Console.Clear();
-                    Console.WriteLine("intast et tal: ");
-                    Console.WriteLine(sb);
-
-                    sb[i] = Console.ReadKey(true).KeyChar;
-                    Console.Clear();
-                    Console.WriteLine(sb);
-                    
-                }
-                
 
                 Console.Clear();
-                Console.WriteLine("intast et tal: ");
-                Console.WriteLine(sb);
+                Console.Write(message);
 
+                Console.WriteLine(sb);
                 sb[i] = Console.ReadKey(true).KeyChar;
+                Console.WriteLine(sb);
                 
             }
-
-
-
-            //hej
-
-
-            //string day = "";
-            //for (int i = 0; i < 2; i++)
-            //{
-            //    do
-            //    {
-            //        char c = Console.ReadKey().KeyChar;
-            //        sb[i] = c;
-            //        Console.WriteLine(sb);
-            //        day += c;
-
-            //    }
-            //    while (day.Length < 2);
-            //}
-
-
-            //Console.Write("/");
-            //string month = "";
-            //do
-            //{
-            //    char c = Console.ReadKey().KeyChar;
-            //    month += c;
-
-            //} while (month.Length < 2);
-            //Console.WriteLine();
-
-            //Console.WriteLine("Dato: " + day + "/" + month);
-
-            //int monthSomTal = int.Parse(month);
-            //int daySomTal = int.Parse(day);
-
-            //string datoVagt = day + "/" + month;
-            //if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
-            //{
-            //    DateTime dag = DateTime.Parse(datoVagt);
-
-            //    e.vagtDato = dag;
-            //    //skal gemmes
-
-            //}
-
-
-            //Console.WriteLine("angiv starttid: ");
-            //string startDate = Console.ReadLine();
-            //Console.WriteLine("angiv sluttid: ");
-            //string endDate = Console.ReadLine();
-
-
-            //TimeSpan s = vagt.Timer(startDate, endDate);
-            //Console.WriteLine(employee.TotalHoursWorked = s);
-
-
+            Console.Clear();
+            Console.Write(message);
+            Console.WriteLine(sb);
+            return sb;
         }
     }
 }
