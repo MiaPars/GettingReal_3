@@ -11,8 +11,11 @@ namespace GettingReal_3
         Shift vagt = new Shift();
         Store butik = new Store();
         Employee e = new Employee();
+        SQL sql = new SQL();
         public void RegistrerTimer(Employee employee,  Store store)
         {
+            DateTime dag = new DateTime();
+
             string startString1 = "../..";
             string startString2 = "..:..";
             char ignore = '/';
@@ -37,7 +40,7 @@ namespace GettingReal_3
 
             if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
             {
-                DateTime dag = DateTime.Parse(datoVagt);
+                dag = DateTime.Parse(datoVagt);
                 e.VagtDato = dag;
                 //skal gemmes
             }
@@ -45,9 +48,12 @@ namespace GettingReal_3
             //tjekker ikke for hvilket tal man sætter ind..
             TimeSpan s = vagt.Timer(startTid.ToString(), slutTid.ToString());
 
+
             employee.TotalHoursWorked = s;
 
-            //skal gemmes
+            //insætter til sql:
+            sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
+
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
         {

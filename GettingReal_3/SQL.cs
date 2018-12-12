@@ -13,7 +13,7 @@ namespace GettingReal_3
     {
         private static string connectionString = "Data Source= den1.mssql7.gear.host; Initial Catalog=gettingreal ; User Id=gettingreal; Password=Kx8ig9R5w~h-;";
 
-        public void insertToEmployee(string employeeNavn)
+        public void InsertToEmployee(string employeeNavn)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -34,7 +34,7 @@ namespace GettingReal_3
             }
         }
 
-        public void insertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
+        public void InsertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -47,6 +47,8 @@ namespace GettingReal_3
                     InsertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
                     InsertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
                     InsertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
+
+                    InsertToShift.ExecuteNonQuery();
 
                 }
                 catch(SqlException e)

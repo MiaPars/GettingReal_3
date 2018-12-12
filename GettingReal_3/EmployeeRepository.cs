@@ -46,10 +46,7 @@ namespace GettingReal_3
                     employees.RemoveAt(i);
                     Console.WriteLine(employees[i].Name + "Er nu blevet slettet");
                 }
-            
             }
-
-            
         }
 
         public Employee CheckEmployee(string input)
