@@ -47,9 +47,6 @@ namespace GettingReal_3
 
                     Console.WriteLine("Registrer Timer: ");
                     RegisterHoursMenu();
-                    
-
-
                     break;
 
                 case 2:

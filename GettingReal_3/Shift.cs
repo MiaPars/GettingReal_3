@@ -9,7 +9,10 @@ namespace GettingReal_3
     public class Shift
     {
         List<Store> storeList = new List<Store>();
-
+        private DateTime day;
+        private DateTime startTime;
+        private DateTime endTime;
+        private double timeSpanDouble;
         public void AddStore()
         {
             storeList = new List<Store>
@@ -39,13 +42,24 @@ namespace GettingReal_3
             }
         }
         
+        public DateTime Day { get { return day; } set { day = value; } }
+
+        public DateTime StartTime { get { return startTime; } set { startTime = value; } }
+
+        public DateTime EndTime { get { return endTime; } set { endTime = value; } }
+
+        public double TimeSpanDouble { get { return timeSpanDouble; } set { timeSpanDouble = value; } }
+
         public TimeSpan Timer(string startDateString, string endDateString)
         {
             // string skal angives: 00/00/00 00:00:00
             
-            DateTime startShift = DateTime.Parse(startDateString);//skal gemmes
+            DateTime startShift = DateTime.Parse(startDateString);
             DateTime endShift = DateTime.Parse(endDateString);
             TimeSpan interval = endShift - startShift;
+
+            StartTime = startShift;
+            EndTime = endShift;
 
             return interval;
             

@@ -24,23 +24,17 @@ namespace GettingReal_3
         private TimeSpan timespan = new TimeSpan(00, 00, 00);
 
 
-        private double tal = 0;
         public TimeSpan TotalHoursWorked
         {
             get { return timespan; }
             set { this.timespan = value; }
-            
-
         }
-        public double TotalHoursSomTal()
+
+        public double TotalHoursToDouble()
         {
-            double min = timespan.TotalMinutes;
+            double min = this.timespan.TotalMinutes;
             double hours = min / 60;
             return hours;
-
-
         }
-        
-
     }
 }
