@@ -54,6 +54,39 @@ namespace GettingReal_3
             }
         }
 
+        public void CheckEmployee(string employeeNavn)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+               
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand checkEmployee = new SqlCommand("CheckMedarbejder", conn);
+                    checkEmployee.CommandType = CommandType.StoredProcedure;
+                    checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+
+                    string Medarbejder = checkEmployee.ExecuteScalar()?.ToString();
+
+                    if (Medarbejder == employeeNavn)
+                    {
+                        DeleteEmployee(employeeNavn);
+                        Console.WriteLine("blha blah");
+
+                    }
+                    else
+                    {
+
+                        Console.WriteLine("Virker ikke");
+                    }
+                }
+                catch (SqlException p)
+                {
+                    Console.WriteLine("Puha" + p.Message);
+                }
+            }
+        }
+
 
         //public void DeleteEmployee(string employeeNavn)
         //{

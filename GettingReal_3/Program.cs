@@ -10,11 +10,11 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
-            Employee e = new Employee();
-            Store s = new Store();
-            AdminEmployee adm = new AdminEmployee();
-            adm.RegistrerTimer(e, s);
-            Console.WriteLine("ok");
+            //Employee e = new Employee();
+            //Store s = new Store();
+            //AdminEmployee adm = new AdminEmployee();
+            //adm.RegistrerTimer(e, s);
+            //Console.WriteLine("ok");
 
 
             //Console.WriteLine(15 % 8);
@@ -39,11 +39,14 @@ namespace GettingReal_3
             //s.insertToShift(date4, date4, date4, date4);
             //Console.WriteLine("ok");
 
-            //SQL ss = new SQL();
+            SQL ss = new SQL();
+            ss.CheckEmployee("Mikkel");
             //ss.InsertToEmployee("employeeNavn");
             //ss.InsertToEmployee("Thomas");
 
             //ss.DeleteEmployee("employeeNavn");
+
+
 
         }
         public void Run()
