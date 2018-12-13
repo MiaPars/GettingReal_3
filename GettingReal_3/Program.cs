@@ -40,7 +40,11 @@ namespace GettingReal_3
             //Console.WriteLine("ok");
 
             SQL ss = new SQL();
-            ss.CheckEmployee("Mikkel");
+            ss.InsertToEmployee("Laj");
+            ss.InsertToEmployee("Femil");
+            ss.DeleteEmployee("kaj");
+
+          
             //ss.InsertToEmployee("employeeNavn");
             //ss.InsertToEmployee("Thomas");
 

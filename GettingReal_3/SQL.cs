@@ -35,26 +35,34 @@ namespace GettingReal_3
         }
         public void DeleteEmployee(string employeeNavn)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (CheckEmployee(employeeNavn) == true)
             {
-                conn.Open();
-                try
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
-                    deleteEmployee.CommandType = CommandType.StoredProcedure;
-                    deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+                    conn.Open();
+                    try
+                    {
+                        SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
+                        deleteEmployee.CommandType = CommandType.StoredProcedure;
+                        deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
 
-                    deleteEmployee.ExecuteNonQuery();
-                }
-                catch (SqlException n)
-                {
-                    Console.WriteLine("Feeeeeeeeeejl" + n.Message);
+                        deleteEmployee.ExecuteNonQuery();
+                    }
+                    catch (SqlException n)
+                    {
+                        Console.WriteLine("Feeeeeeeeeejl" + n.Message);
 
+                    }
                 }
             }
+            else
+            {
+                Console.WriteLine("Forkert navn");
+            }
+            
         }
 
-        public void CheckEmployee(string employeeNavn)
+        public bool CheckEmployee(string employeeNavn)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
                
@@ -67,22 +75,26 @@ namespace GettingReal_3
                     checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
 
                     string Medarbejder = checkEmployee.ExecuteScalar()?.ToString();
+                    string lower = Medarbejder.ToLower();
+                    string inputToLower = employeeNavn.ToLower();
 
-                    if (Medarbejder == employeeNavn)
+
+                    if (lower == inputToLower)
                     {
-                        DeleteEmployee(employeeNavn);
-                        Console.WriteLine("blha blah");
+                        return true;
+           
 
                     }
                     else
                     {
-
-                        Console.WriteLine("Virker ikke");
+                        return false;
+                   
                     }
                 }
                 catch (SqlException p)
                 {
                     Console.WriteLine("Puha" + p.Message);
+                    return false;
                 }
             }
         }
