@@ -10,11 +10,11 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
-            Employee e = new Employee();
-            Store s = new Store();
-            AdminEmployee adm = new AdminEmployee();
-            adm.RegistrerTimer(e, s);
-            Console.WriteLine("ok");
+            //Employee e = new Employee();
+            //Store s = new Store();
+            //AdminEmployee adm = new AdminEmployee();
+            //adm.RegistrerTimer(e, s);
+            //Console.WriteLine("ok");
 
 
             //Console.WriteLine(15 % 8);
@@ -22,8 +22,8 @@ namespace GettingReal_3
 
             //Console.WriteLine(e.VagtDato.ToString());
 
-            //Program prog = new Program();
-            //prog.Run();
+            Program prog = new Program();
+            prog.Run();
 
 
 
