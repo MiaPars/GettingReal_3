@@ -11,9 +11,9 @@ namespace GettingReal_3
     public class SQL
 
     {
-        private static string connectionString = "Data Source= den1.mssql7.gear.host; Initial Catalog=gettingreal ; User Id=gettingreal; Password=Kx8ig9R5w~h-;";
+        private string connectionString = "Data Source= den1.mssql7.gear.host; Initial Catalog=gettingreal ; User Id=gettingreal; Password=Kx8ig9R5w~h-;";
 
-        public void insertToEmployee(string employeeNavn)
+        public void InsertToEmployee(string employeeNavn)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -23,7 +23,7 @@ namespace GettingReal_3
                     SqlCommand insertToEmployee = new SqlCommand("InsertToMedarbejder", conn);
                     insertToEmployee.CommandType = CommandType.StoredProcedure;
                     insertToEmployee.Parameters.Add(new SqlParameter("@Navn", employeeNavn));
-                    
+
                     insertToEmployee.ExecuteNonQuery();
                 }
 
@@ -49,11 +49,11 @@ namespace GettingReal_3
                 catch (SqlException n)
                 {
                     Console.WriteLine("Feeeeeeeeeejl" + n.Message);
-                
+
                 }
             }
         }
-        
+
 
         //public void DeleteEmployee(string employeeNavn)
         //{
@@ -70,34 +70,36 @@ namespace GettingReal_3
         //        else (employeeNavn != )
         //            Console.WriteLine("Indtastet navn er forkert");
         //        }
-             
+
 
         //}
-        
-        
-          
-        }
 
-        public void insertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
+
+
+
+
+        public void InsertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand InsertToShift = new SqlCommand("InsertToVagt", conn);
-                    InsertToShift.CommandType = CommandType.StoredProcedure;
-                    InsertToShift.Parameters.Add(new SqlParameter("@date", dato));
-                    InsertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
-                    InsertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-                    InsertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
+                    SqlCommand insertToShift = new SqlCommand("InsertToVagt", conn);
+                    insertToShift.CommandType = CommandType.StoredProcedure;
+                    insertToShift.Parameters.Add(new SqlParameter("@date", dato));
+                    insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
+                    insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
+                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
 
                 }
-                catch(SqlException e)
+                catch (SqlException e)
                 {
                     Console.WriteLine("Insert to shift fejl" + e.Message);
                 }
             }
+
+
         }
     }
 }

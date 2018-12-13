@@ -38,6 +38,13 @@ namespace GettingReal_3
             //SQL s = new SQL();
             //s.insertToShift(date4, date4, date4, date4);
             //Console.WriteLine("ok");
+
+            //SQL ss = new SQL();
+            //ss.InsertToEmployee("employeeNavn");
+            //ss.InsertToEmployee("Thomas");
+
+            //ss.DeleteEmployee("employeeNavn");
+
         }
         public void Run()
         {

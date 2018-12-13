@@ -31,6 +31,7 @@ namespace GettingReal_3
             employees.Add(new Employee(empName));
             
             Console.WriteLine("Medarbejder tilføjet");
+            Console.ReadKey();
             
         }
 
@@ -39,17 +40,20 @@ namespace GettingReal_3
             Console.Write("Navn på slet af employee: ");
             string empName = Console.ReadLine();
 
-            for (int i = 0; i < employees.Count; i++)
-            {
-                if (empName.Equals(employees[i].Name))
-                {
-                    employees.RemoveAt(i);
-                    Console.WriteLine(employees[i].Name + "Er nu blevet slettet");
-                }
+            //for (int i = 0; i < employees.Count; i++)
+            //{
+            //    if (empName.Equals(employees[i].Name))
+            //    {
+            //        employees.RemoveAt(i);
+            //        Console.WriteLine(employees[i].Name + "Er nu blevet slettet");
+            //    }
             
-            }
+            //}
 
-            
+            sql.DeleteEmployee(empName);
+
+            Console.WriteLine("Medarbejde er nu blevet slettet");
+            Console.ReadKey();
         }
 
         public Employee CheckEmployee(string input)
