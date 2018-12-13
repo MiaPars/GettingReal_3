@@ -33,6 +33,50 @@ namespace GettingReal_3
                 }
             }
         }
+        public void DeleteEmployee(string employeeNavn)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                try
+                {
+                    SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
+                    deleteEmployee.CommandType = CommandType.StoredProcedure;
+                    deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+
+                    deleteEmployee.ExecuteNonQuery();
+                }
+                catch (SqlException n)
+                {
+                    Console.WriteLine("Feeeeeeeeeejl" + n.Message);
+                
+                }
+            }
+        }
+        
+
+        //public void DeleteEmployee(string employeeNavn)
+        //{
+        //    using (SqlConnection conn = new SqlConnection(connectionString))
+        //    {
+        //        conn.Open();
+        //        if (employeeNavn == )
+        //        {
+        //            SqlCommand DeleteEmployee = new SqlCommand("delete InsertToMedarbejder where ID=@id", conn);
+        //            DeleteEmployee.Parameters.AddWithValue("@id", employeeNavn);
+        //            DeleteEmployee.ExecuteNonQuery();
+
+        //        }
+        //        else (employeeNavn != )
+        //            Console.WriteLine("Indtastet navn er forkert");
+        //        }
+             
+
+        //}
+        
+        
+          
+        }
 
         public void InsertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
         {
