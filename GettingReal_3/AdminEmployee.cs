@@ -46,6 +46,7 @@ namespace GettingReal_3
             TimeSpan s = vagt.Timer(startTid.ToString(), slutTid.ToString());
 
             employee.TotalHoursWorked = s;
+
             //skal gemmes
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
@@ -66,7 +67,6 @@ namespace GettingReal_3
                 Console.WriteLine(sb);
                 sb[i] = Console.ReadKey(true).KeyChar;
                 Console.WriteLine(sb);
-                
             }
             Console.Clear();
             Console.Write(message);

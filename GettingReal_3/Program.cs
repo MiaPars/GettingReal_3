@@ -14,14 +14,16 @@ namespace GettingReal_3
             //Store s = new Store();
             //AdminEmployee adm = new AdminEmployee();
             //adm.RegistrerTimer(e, s);
-            //Console.WriteLine(e.TotalHoursWorked);
+            //Console.WriteLine(e.TotalHoursSomTal());
 
+
+            //Console.WriteLine(15 % 8);
 
 
             //Console.WriteLine(e.VagtDato.ToString());
 
-            //Program prog = new Program();
-            //prog.Run();
+            Program prog = new Program();
+            prog.Run();
 
 
 
@@ -32,7 +34,7 @@ namespace GettingReal_3
             ////5 / 1 / 2008
             //string dateString = "8:30:52";
             //DateTime date4 = DateTime.Parse(dateString);
-            ////string skal angives: 00 / 00 / 00 00:00:00
+            //string skal angives: 00 / 00 / 00 00:00:00
             //SQL s = new SQL();
             //s.insertToShift(date4, date4, date4, date4);
             //Console.WriteLine("ok");

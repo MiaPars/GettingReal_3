@@ -8,9 +8,9 @@ namespace GettingReal_3
 {
     public class Store
     {
-        public Store(string butikNavnConstructor)
+        public Store(string butikNavn)
         {
-            StoreName = butikNavnConstructor;
+            StoreName = butikNavn;
         }
         // employee repo
         // employee admin
