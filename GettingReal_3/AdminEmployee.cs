@@ -33,14 +33,14 @@ namespace GettingReal_3
             string day = dato[0].ToString() + dato[1].ToString();
             string month = dato[3].ToString() + dato[4].ToString();
 
-            string datoVagt = dato.ToString();
+            string ShiftDate = dato.ToString();
 
-            int daySomTal = int.Parse(day);
-            int monthSomTal = int.Parse(month);
+            int dayAsNum = int.Parse(day);
+            int monthAsNum = int.Parse(month);
 
-            if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
+            if (monthAsNum <= 12 && monthAsNum >= 1 && dayAsNum <= 31 && dayAsNum >= 1)
             {
-                dag = DateTime.Parse(datoVagt);
+                dag = DateTime.Parse(ShiftDate);
                 e.ShiftDate = dag;
                 //skal gemmes
             }
