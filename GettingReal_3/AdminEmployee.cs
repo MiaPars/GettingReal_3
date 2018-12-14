@@ -12,7 +12,7 @@ namespace GettingReal_3
         Store butik = new Store();
         Employee e = new Employee();
         SQL sql = new SQL();
-        public void RegistrerTimer(Employee employee,  Store store)
+        public void RegisterHours(Employee employee,  Store store)
         {
             DateTime dag = new DateTime();
 
@@ -41,7 +41,7 @@ namespace GettingReal_3
             if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
             {
                 dag = DateTime.Parse(datoVagt);
-                e.VagtDato = dag;
+                e.ShiftDate = dag;
                 //skal gemmes
             }
             

@@ -9,12 +9,12 @@ namespace GettingReal_3
     
     public class Menu
     {
-        Admin adm = new Admin();
+        Admin admin = new Admin();
         AdminEmployee admEmp = new AdminEmployee();
         Shift shift = new Shift();
         Store store = new Store();
         EmployeeRepository empRepo = new EmployeeRepository();
-        Program pro = new Program();
+        Program program = new Program();
 
         public void Show()
 
@@ -113,9 +113,9 @@ namespace GettingReal_3
                 butikInput = Console.ReadLine();
             }
 
-            Console.WriteLine("du har valgt " + butikInput + "butikken");
+            Console.WriteLine("du har valgt " + butikInput + "-butikken");
 
-            admEmp.RegistrerTimer(empRepo.CheckEmployee(input), shift.CheckStore(butikInput));
+            admEmp.RegisterHours(empRepo.CheckEmployee(input), shift.CheckStore(butikInput));
             
         }
 
@@ -142,14 +142,14 @@ namespace GettingReal_3
                 case 3:
                     Console.WriteLine("3. Tilføj medarbejder");
 
-                    adm.AddEmployee();
+                    admin.AddEmployee();
                     GoBack();
                     break;
 
                 case 4:
                     Console.WriteLine("4. Slet medarbejder");
 
-                    adm.RemoveEmployee();
+                    admin.RemoveEmployee();
                     GoBack();
 
                     break;
@@ -200,7 +200,7 @@ namespace GettingReal_3
             char s = Console.ReadKey().KeyChar;
             if (s.Equals('b'))
             {
-                pro.Run();
+                program.Run();
             }
             else
             {
