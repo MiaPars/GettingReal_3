@@ -48,49 +48,29 @@ namespace GettingReal_3
                 }
                 catch (SqlException n)
                 {
-                    Console.WriteLine("Feeeeeeeeeejl" + n.Message);
+                    Console.WriteLine("Delete employee virker ikke" + n.Message);
 
                 }
             }
         }
 
-
-        //public void DeleteEmployee(string employeeNavn)
-        //{
-        //    using (SqlConnection conn = new SqlConnection(connectionString))
-        //    {
-        //        conn.Open();
-        //        if (employeeNavn == )
-        //        {
-        //            SqlCommand DeleteEmployee = new SqlCommand("delete InsertToMedarbejder where ID=@id", conn);
-        //            DeleteEmployee.Parameters.AddWithValue("@id", employeeNavn);
-        //            DeleteEmployee.ExecuteNonQuery();
-
-        //        }
-        //        else (employeeNavn != )
-        //            Console.WriteLine("Indtastet navn er forkert");
-        //        }
-
-
-        //}
-
-
-
-
-
-        public void InsertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
+        public void InsertToShift(string butikNavn, DateTime dato, string morgenAften, string medarbejder, DateTime startTid, DateTime slutTid)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand insertToShift = new SqlCommand("InsertToVagt", conn);
+                    SqlCommand insertToShift = new SqlCommand("IndsætVagt", conn);
                     insertToShift.CommandType = CommandType.StoredProcedure;
-                    insertToShift.Parameters.Add(new SqlParameter("@date", dato));
+                    insertToShift.Parameters.Add(new SqlParameter("@ButikNavn", butikNavn));
+                    insertToShift.Parameters.Add(new SqlParameter("@Dato", dato));
+                    insertToShift.Parameters.Add(new SqlParameter("@MorgenAften", morgenAften));
+                    insertToShift.Parameters.Add(new SqlParameter("@Medarbejder", medarbejder));
                     insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
                     insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
+
+                    insertToShift.ExecuteNonQuery();
 
                 }
                 catch (SqlException e)
@@ -101,5 +81,33 @@ namespace GettingReal_3
 
 
         }
+
+        public void PlanShift(string ButikNavn, DateTime dato, string MorgenAften, string Medarbejder)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+
+                try
+                {
+                    SqlCommand planShift = new SqlCommand("Planlæg", conn);
+                    planShift.CommandType = CommandType.StoredProcedure;
+                    planShift.Parameters.Add(new SqlParameter("@ButikNavn", ButikNavn));
+                    planShift.Parameters.Add(new SqlParameter("@Dato", dato));
+                    planShift.Parameters.Add(new SqlParameter("@MorgenAften", MorgenAften));
+                    planShift.Parameters.Add(new SqlParameter("@Medarbejder", Medarbejder));
+                    planShift.ExecuteNonQuery();
+
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("PlanShift virker ikke" + e.Message);
+                }
+                
+                
+            }
+        }
+
+        
     }
 }

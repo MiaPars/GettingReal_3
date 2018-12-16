@@ -52,7 +52,7 @@ namespace GettingReal_3
             employee.TotalHoursWorked = s;
 
             //insætter til sql:
-            sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
+            //sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
 
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
