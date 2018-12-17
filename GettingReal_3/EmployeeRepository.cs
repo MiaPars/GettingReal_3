@@ -22,7 +22,7 @@ namespace GettingReal_3
         }
         public void AddEmployee()
         {
-            Console.Write("Navn på ny medarbejder: ");
+            Console.WriteLine("Navn på ny medarbejder: ");
             string empName = Console.ReadLine();
 
             sql.InsertToEmployee(empName);

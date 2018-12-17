@@ -12,7 +12,7 @@ namespace GettingReal_3
         Store butik = new Store();
         Employee e = new Employee();
         SQL sql = new SQL();
-        public void RegistrerTimer(Employee employee,  Store store)
+        public void RegisterHours(Employee employee,  Store store)
         {
             DateTime dag = new DateTime();
 
@@ -33,15 +33,15 @@ namespace GettingReal_3
             string day = dato[0].ToString() + dato[1].ToString();
             string month = dato[3].ToString() + dato[4].ToString();
 
-            string datoVagt = dato.ToString();
+            string ShiftDate = dato.ToString();
 
-            int daySomTal = int.Parse(day);
-            int monthSomTal = int.Parse(month);
+            int dayAsNum = int.Parse(day);
+            int monthAsNum = int.Parse(month);
 
-            if (monthSomTal <= 12 && monthSomTal >= 1 && daySomTal <= 31 && daySomTal >= 1)
+            if (monthAsNum <= 12 && monthAsNum >= 1 && dayAsNum <= 31 && dayAsNum >= 1)
             {
-                dag = DateTime.Parse(datoVagt);
-                e.VagtDato = dag;
+                dag = DateTime.Parse(ShiftDate);
+                e.ShiftDate = dag;
                 //skal gemmes
             }
             
@@ -52,7 +52,7 @@ namespace GettingReal_3
             employee.TotalHoursWorked = s;
 
             //insætter til sql:
-            sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
+            //sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
 
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
