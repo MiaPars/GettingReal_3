@@ -104,7 +104,42 @@ namespace GettingReal_3
                     Console.WriteLine("PlanShift virker ikke" + e.Message);
                 }
                 
-                
+            }
+        }
+
+        public void GetData()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand getData = new SqlCommand("UdskrivVagt", conn))
+                {
+                    using (SqlDataReader reader = getData.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+
+                           
+                                string Butiknavn = reader["ButikNavn"].ToString();
+                                string Dato = reader["Dato"].ToString();
+                                string MorgenAften = reader["MorgenAften"].ToString();
+                                string Medarbejder = reader["Medarbejder"].ToString();
+                                string StartTid = reader["StartTid"].ToString();
+                                string SlutTid = reader["SlutTid"].ToString();
+                                string AntalTimer = reader["AntalTimer"].ToString();
+
+                                Console.Write("Butiknavn: " + Butiknavn + "\nDato: " + Dato + "\nMorgen eller Aften: " + 
+                                    MorgenAften + "\nMedarbejder navn: " + Medarbejder + "\nStart tid: " + StartTid + "\nSlut tid: " +
+                                    SlutTid + "\nAntal timer arbejdet: " + AntalTimer);
+                            Console.WriteLine();
+
+
+
+
+
+                        }
+                    }
+                }
             }
         }
 
