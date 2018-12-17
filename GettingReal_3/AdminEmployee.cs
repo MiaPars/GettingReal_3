@@ -8,13 +8,25 @@ namespace GettingReal_3
 {
     public class AdminEmployee
     {
-        Shift vagt = new Shift();
-        Store butik = new Store();
-        Employee e = new Employee();
+        Shift shift = new Shift();
+        Store store = new Store();
+        Employee employee = new Employee();
         SQL sql = new SQL();
-        public void RegisterHours(Employee employee,  Store store)
+        public void RegisterHours(Employee employeee, Store stoore)
         {
+            Console.WriteLine("intast morgen eller aften: ");
+            string morgenAften = Console.ReadLine();
+            morgenAften.ToLower();
+
+            while (!morgenAften.Equals("morgen") && !morgenAften.Equals("aften"))
+            {
+                Console.WriteLine("Du har intastet forkert, prøv igen: ");
+                morgenAften = Console.ReadLine();
+            }
+
             DateTime dag = new DateTime();
+            DateTime startTime = new DateTime();
+            DateTime endTime = new DateTime();
 
             string startString1 = "../..";
             string startString2 = "..:..";
@@ -29,30 +41,37 @@ namespace GettingReal_3
             StringBuilder startTid = InputDateTime(startString2, ignore1, message1);
             Console.ReadKey();
             StringBuilder slutTid = InputDateTime(startString2, ignore1, message2);
+            
+            string ShiftDate = dato.ToString();
+            string ShiftStartTime = startTid.ToString();
+            string ShiftEndTime = slutTid.ToString();
 
             string day = dato[0].ToString() + dato[1].ToString();
             string month = dato[3].ToString() + dato[4].ToString();
 
-            string ShiftDate = dato.ToString();
-
+            //for at tjekke om det er en rigtig dato:
             int dayAsNum = int.Parse(day);
             int monthAsNum = int.Parse(month);
 
             if (monthAsNum <= 12 && monthAsNum >= 1 && dayAsNum <= 31 && dayAsNum >= 1)
             {
                 dag = DateTime.Parse(ShiftDate);
-                e.ShiftDate = dag;
-                //skal gemmes
+                this.employee.ShiftDate = dag;
             }
+
+            startTime = DateTime.Parse(startTid.ToString());
+            endTime = DateTime.Parse(slutTid.ToString());
+
+            //insæt til properties:
+            shift.Day = dag;
+            shift.StartTime = startTime;
+            shift.EndTime = endTime;
             
-            //tjekker ikke for hvilket tal man sætter ind..
-            TimeSpan s = vagt.Timer(startTid.ToString(), slutTid.ToString());
-
-
+            TimeSpan s = shift.Timer(startTid.ToString(), slutTid.ToString());
             employee.TotalHoursWorked = s;
 
             //insætter til sql:
-            //sql.InsertToShift(vagt.Day, vagt.StartTime, vagt.EndTime, employee.TotalHoursToDouble());
+            sql.InsertToShift(stoore.StoreName, shift.Day, morgenAften, employeee.Name, shift.StartTime, shift.EndTime, employee.TotalHoursToDouble());
 
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)

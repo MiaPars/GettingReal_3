@@ -21,7 +21,10 @@ namespace GettingReal_3
         {
             RepoEmp.RemoveEmployee();
         }
+        public void PlanShift()
+        {
 
+        }
         //public void ExportExcel()
         //{
         //    Gemme fra DB til Excel

@@ -9,7 +9,6 @@ using System.Data.SqlClient;
 namespace GettingReal_3
 {
     public class SQL
-
     {
         private string connectionString = "Data Source= den1.mssql7.gear.host; Initial Catalog=gettingreal ; User Id=gettingreal; Password=Kx8ig9R5w~h-;";
 
@@ -35,26 +34,67 @@ namespace GettingReal_3
         }
         public void DeleteEmployee(string employeeNavn)
         {
+            if (CheckEmployee(employeeNavn) != null)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
+                        deleteEmployee.CommandType = CommandType.StoredProcedure;
+                        deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+
+                        deleteEmployee.ExecuteNonQuery();
+                    }
+                    catch (SqlException n)
+                    {
+                        Console.WriteLine("Feeeeeeeeeejl" + n.Message);
+
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Forkert navn");
+            }
+
+        }
+
+        public Employee CheckEmployee(string employeeNavn)
+        {
+            Employee empl = new Employee();
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
-                    deleteEmployee.CommandType = CommandType.StoredProcedure;
-                    deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+                    SqlCommand checkEmployee = new SqlCommand("CheckMedarbejder", conn);
+                    checkEmployee.CommandType = CommandType.StoredProcedure;
+                    checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
 
-                    deleteEmployee.ExecuteNonQuery();
+                    string Medarbejder = checkEmployee.ExecuteScalar()?.ToString();
+                    string lower = Medarbejder.ToLower();
+                    string inputToLower = employeeNavn.ToLower();
+                    
+                    if (lower == inputToLower)
+                    {
+                        return empl;
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                catch (SqlException n)
+                catch (SqlException p)
                 {
-                    Console.WriteLine("Delete employee virker ikke" + n.Message);
-
+                    Console.WriteLine("Puha" + p.Message);
+                    return null;
                 }
             }
         }
 
-        public void InsertToShift(string butikNavn, DateTime dato, string morgenAften, string medarbejder, DateTime startTid, DateTime slutTid)
+        public void InsertToShift(string butikNavn, DateTime dato, string morgenAften, string medarbejder, DateTime startTid, DateTime slutTid, double antalTimer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -69,7 +109,7 @@ namespace GettingReal_3
                     insertToShift.Parameters.Add(new SqlParameter("@Medarbejder", medarbejder));
                     insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
                     insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-
+                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
                     insertToShift.ExecuteNonQuery();
 
                 }
@@ -132,10 +172,7 @@ namespace GettingReal_3
                                     MorgenAften + "\nMedarbejder navn: " + Medarbejder + "\nStart tid: " + StartTid + "\nSlut tid: " +
                                     SlutTid + "\nAntal timer arbejdet: " + AntalTimer);
                             Console.WriteLine();
-
-
-
-
+                            
 
                         }
                     }

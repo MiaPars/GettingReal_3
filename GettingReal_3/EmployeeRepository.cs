@@ -18,7 +18,6 @@ namespace GettingReal_3
             {
                 Console.WriteLine(item.Name);
             }
-            
         }
         public void AddEmployee()
         {
@@ -28,7 +27,7 @@ namespace GettingReal_3
             sql.InsertToEmployee(empName);
 
             //ved ikke om vi har brug for listen
-            employees.Add(new Employee(empName));
+            //employees.Add(new Employee(empName));
             
             Console.WriteLine("Medarbejder tilføjet");
             Console.ReadKey();
@@ -56,16 +55,16 @@ namespace GettingReal_3
             Console.ReadKey();
         }
 
-        public Employee CheckEmployee(string input)
-        {
-            foreach (Employee item in employees)
-            {
-                if (input.Equals(item.Name, StringComparison.OrdinalIgnoreCase))
-                {
-                    return item;
-                }
-            }
-            return null;
-        }
+        //public Employee CheckEmployee(string input)
+        //{
+        //    foreach (Employee item in employees)
+        //    {
+        //        if (input.Equals(item.Name, StringComparison.OrdinalIgnoreCase))
+        //        {
+        //            return item;
+        //        }
+        //    }
+        //    return null;
+        //}
     }
 }

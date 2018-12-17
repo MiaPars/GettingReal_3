@@ -14,6 +14,7 @@ namespace GettingReal_3
         Shift shift = new Shift();
         Store store = new Store();
         EmployeeRepository empRepo = new EmployeeRepository();
+        SQL dataBase = new SQL();
         Program program = new Program();
 
         public void Show()
@@ -69,7 +70,8 @@ namespace GettingReal_3
                     Console.WriteLine("2. Tjek om vagter er taget");
                     Console.WriteLine("3. Tilføj medarbejder");
                     Console.WriteLine("4. Slet medarbejder");
-                    Console.WriteLine("5. Luk ned");
+                    Console.WriteLine("5. Planlæg ny vagt");
+                    Console.WriteLine("6. Luk ned");
 
                     Administration();
 
@@ -85,17 +87,20 @@ namespace GettingReal_3
         {
             Console.Clear();
 
-            empRepo.AddEmployee();
             Console.Write("Indtast navn: ");
             string input = Console.ReadLine();
 
-            while (empRepo.CheckEmployee(input) == null)
+            //tjekker i databasen om det er rigtigt navn
+            while (dataBase.CheckEmployee(input) == null)
             {
                 Console.Clear();
                 Console.WriteLine("Du har intastet forkert navn, prøv igen: ");
                 input = Console.ReadLine();
             }
-            
+            //insætter til property
+            Employee enEmp = new Employee();
+            enEmp.Name = input;
+
             Console.Clear();
             Console.WriteLine("Du har valgt: " + input);
 
@@ -112,11 +117,13 @@ namespace GettingReal_3
                 Console.WriteLine("Du har intastet forkert butik navn, prøv igen: ");
                 butikInput = Console.ReadLine();
             }
+            store.StoreName = butikInput;
 
+            Console.Clear();
             Console.WriteLine("du har valgt " + butikInput + "-butikken");
 
-            admEmp.RegisterHours(empRepo.CheckEmployee(input), shift.CheckStore(butikInput));
-            
+
+            admEmp.RegisterHours(enEmp, shift.CheckStore(butikInput));
         }
 
         public void EndedShifts()
@@ -153,12 +160,25 @@ namespace GettingReal_3
                     GoBack();
 
                     break;
-
                 case 5:
-                    Console.WriteLine("5. Luk ned");
+                    Console.WriteLine("5. Planlæg ny vagt");
+                    PlanShift();
+                    break;
+
+                case 6:
+                    Console.WriteLine("6. Luk ned");
                     Environment.Exit(0);
                     break;
             }
+        }
+        public void PlanShift()
+        {
+            Console.Clear();
+            Console.WriteLine("navn på butik: ");
+
+            Console.WriteLine("Dato: ");
+            Console.WriteLine("morgen eller aften:");
+            Console.WriteLine("navn: ");
         }
 
         public void AdminPass()

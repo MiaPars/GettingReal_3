@@ -8,6 +8,7 @@ namespace GettingReal_3
 {
     public class Store
     {
+        string storeName;
         public Store(string storeName)
         {
             StoreName = storeName;
@@ -18,8 +19,8 @@ namespace GettingReal_3
         public Store() { }
         public string StoreName
         {
-            get;
-            set;
+            get { return storeName; }
+            set { storeName = value; }
         }
     }
 }
