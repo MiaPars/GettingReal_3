@@ -107,6 +107,27 @@ namespace GettingReal_3
                 
             }
         }
+        public void HentDataFromShift()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand("stored proc", conn))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                Console.WriteLine(reader.GetValue(i));
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                }
+            }
+        }
+
 
         
     }
