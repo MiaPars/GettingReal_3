@@ -35,42 +35,86 @@ namespace GettingReal_3
         }
         public void DeleteEmployee(string employeeNavn)
         {
+            if (CheckEmployee(employeeNavn) == true)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    try
+                    {
+                        SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
+                        deleteEmployee.CommandType = CommandType.StoredProcedure;
+                        deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+
+                        deleteEmployee.ExecuteNonQuery();
+                    }
+                    catch (SqlException n)
+                    {
+                        Console.WriteLine("Feeeeeeeeeejl" + n.Message);
+
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Forkert navn");
+            }
+            
+        }
+
+        public bool CheckEmployee(string employeeNavn)
+        {
             using (SqlConnection conn = new SqlConnection(connectionString))
+               
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
-                    deleteEmployee.CommandType = CommandType.StoredProcedure;
-                    deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+                    SqlCommand checkEmployee = new SqlCommand("CheckMedarbejder", conn);
+                    checkEmployee.CommandType = CommandType.StoredProcedure;
+                    checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
 
-                    deleteEmployee.ExecuteNonQuery();
+                    string Medarbejder = checkEmployee.ExecuteScalar()?.ToString();
+                    string lower = Medarbejder.ToLower();
+                    string inputToLower = employeeNavn.ToLower();
+
+
+                    if (lower == inputToLower)
+                    {
+                        return true;
+           
+
+                    }
+                    else
+                    {
+                        return false;
+                   
+                    }
                 }
-                catch (SqlException n)
+                catch (SqlException p)
                 {
-                    Console.WriteLine("Delete employee virker ikke" + n.Message);
-
+                    Console.WriteLine("Puha" + p.Message);
+                    return false;
                 }
             }
         }
 
-        public void InsertToShift(string butikNavn, DateTime dato, string morgenAften, string medarbejder, DateTime startTid, DateTime slutTid)
+
+
+
+        public void InsertToShift(DateTime dato, DateTime startTid, DateTime slutTid, double antalTimer)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 try
                 {
-                    SqlCommand insertToShift = new SqlCommand("IndsætVagt", conn);
+                    SqlCommand insertToShift = new SqlCommand("InsertToVagt", conn);
                     insertToShift.CommandType = CommandType.StoredProcedure;
-                    insertToShift.Parameters.Add(new SqlParameter("@ButikNavn", butikNavn));
-                    insertToShift.Parameters.Add(new SqlParameter("@Dato", dato));
-                    insertToShift.Parameters.Add(new SqlParameter("@MorgenAften", morgenAften));
-                    insertToShift.Parameters.Add(new SqlParameter("@Medarbejder", medarbejder));
+                    insertToShift.Parameters.Add(new SqlParameter("@date", dato));
                     insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
                     insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-
-                    insertToShift.ExecuteNonQuery();
+                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
 
                 }
                 catch (SqlException e)
@@ -81,54 +125,5 @@ namespace GettingReal_3
 
 
         }
-
-        public void PlanShift(string ButikNavn, DateTime dato, string MorgenAften, string Medarbejder)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                try
-                {
-                    SqlCommand planShift = new SqlCommand("Planlæg", conn);
-                    planShift.CommandType = CommandType.StoredProcedure;
-                    planShift.Parameters.Add(new SqlParameter("@ButikNavn", ButikNavn));
-                    planShift.Parameters.Add(new SqlParameter("@Dato", dato));
-                    planShift.Parameters.Add(new SqlParameter("@MorgenAften", MorgenAften));
-                    planShift.Parameters.Add(new SqlParameter("@Medarbejder", Medarbejder));
-                    planShift.ExecuteNonQuery();
-
-                }
-                catch (SqlException e)
-                {
-                    Console.WriteLine("PlanShift virker ikke" + e.Message);
-                }
-                
-                
-            }
-        }
-        public void HentDataFromShift()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand("stored proc", conn))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            for (int i = 0; i < reader.FieldCount; i++)
-                            {
-                                Console.WriteLine(reader.GetValue(i));
-                            }
-                            Console.WriteLine();
-                        }
-                    }
-                }
-            }
-        }
-
-
-        
     }
 }

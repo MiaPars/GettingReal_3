@@ -46,11 +46,18 @@ namespace GettingReal_3
             //Console.WriteLine("ok");
 
 
-            //SQL ss = new SQL();
+            SQL ss = new SQL();
+            ss.InsertToEmployee("Laj");
+            ss.InsertToEmployee("Femil");
+            ss.DeleteEmployee("kaj");
+
+          
             //ss.InsertToEmployee("employeeNavn");
             //ss.InsertToEmployee("Thomas");
 
             //ss.DeleteEmployee("employeeNavn");
+
+
 
         }
         public void Run()

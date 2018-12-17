@@ -58,14 +58,27 @@ namespace GettingReal_3
 
         public Employee CheckEmployee(string input)
         {
+            string navn = input;
+            string lower = navn.ToLower();
+
             foreach (Employee item in employees)
             {
-                if (input.Equals(item.Name, StringComparison.OrdinalIgnoreCase))
+                item.Name.ToLower();
+
+                if (input.Equals(item.Name))
                 {
+
                     return item;
                 }
+
+
+
+                //else if (!input.Equals(item.Name))
+                //{
+                //    throw new Exception("prøv igen");
+                //}
             }
             return null;
-        }
+        }   
     }
 }
