@@ -20,21 +20,28 @@ namespace GettingReal_3
             //Console.WriteLine(15 % 8);
             //Console.WriteLine(e.VagtDato.ToString());
 
-            Console.CursorVisible = false;
-            Program prog = new Program();
-            prog.Run();
+            //Console.CursorVisible = false;
+            //Program prog = new Program();
+            //prog.Run();
+
+            DateTime date1 = new DateTime(2008, 5, 1);
+
+            string dateString = "8:30:52";
+            string datestring1 = "9:30:34";
+            DateTime date4 = DateTime.Parse(dateString);
+            DateTime date5 = DateTime.Parse(datestring1);
+
+            SQL sql = new SQL();
+            sql.InsertToShift("ng", date1, "morgen", "kat", date4, date5);
+
+            sql.GetData();
 
 
-            //sdkjbf
 
-            //DateTime date1 = new DateTime(2008, 5, 1);
             ////DateTime date2 = new DateTime(12, 01, 01);
             ////DateTime date3 = new DateTime(12, 12, 12);
             ////5 / 1 / 2008
-            //string dateString = "8:30:52";
-            //string datestring1 = "9:30:34";
-            //DateTime date4 = DateTime.Parse(dateString);
-            //DateTime date5 = DateTime.Parse(datestring1);
+            
             ////string skal angives: 00 / 00 / 00 00:00:00
             //SQL s = new SQL();
 
@@ -46,18 +53,11 @@ namespace GettingReal_3
             //Console.WriteLine("ok");
 
 
-            SQL ss = new SQL();
-            ss.InsertToEmployee("Laj");
-            ss.InsertToEmployee("Femil");
-            ss.DeleteEmployee("kaj");
-
-          
+            //SQL ss = new SQL();
             //ss.InsertToEmployee("employeeNavn");
             //ss.InsertToEmployee("Thomas");
 
             //ss.DeleteEmployee("employeeNavn");
-
-
 
         }
         public void Run()
