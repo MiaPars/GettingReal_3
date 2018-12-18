@@ -12,7 +12,7 @@ namespace GettingReal_3
     {
         private string connectionString = "Data Source= den1.mssql7.gear.host; Initial Catalog=gettingreal ; User Id=gettingreal; Password=Kx8ig9R5w~h-;";
 
-        public void InsertToEmployee(string employeeNavn)
+        public void InsertToEmployee(string employeeName)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -21,7 +21,7 @@ namespace GettingReal_3
                 {
                     SqlCommand insertToEmployee = new SqlCommand("InsertToMedarbejder", conn);
                     insertToEmployee.CommandType = CommandType.StoredProcedure;
-                    insertToEmployee.Parameters.Add(new SqlParameter("@Navn", employeeNavn));
+                    insertToEmployee.Parameters.Add(new SqlParameter("@Navn", employeeName));
 
                     insertToEmployee.ExecuteNonQuery();
                 }
@@ -32,9 +32,9 @@ namespace GettingReal_3
                 }
             }
         }
-        public void DeleteEmployee(string employeeNavn)
+        public void DeleteEmployee(string employeeName)
         {
-            if (CheckEmployee(employeeNavn) != null)
+            if (CheckEmployee(employeeName) != null)
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
@@ -43,7 +43,7 @@ namespace GettingReal_3
                     {
                         SqlCommand deleteEmployee = new SqlCommand("DeleteEmployee", conn);
                         deleteEmployee.CommandType = CommandType.StoredProcedure;
-                        deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+                        deleteEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeName));
 
                         deleteEmployee.ExecuteNonQuery();
                     }
@@ -61,7 +61,7 @@ namespace GettingReal_3
 
         }
 
-        public Employee CheckEmployee(string employeeNavn)
+        public Employee CheckEmployee(string employeeName)
         {
             Employee empl = new Employee();
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -71,11 +71,11 @@ namespace GettingReal_3
                 {
                     SqlCommand checkEmployee = new SqlCommand("CheckMedarbejder", conn);
                     checkEmployee.CommandType = CommandType.StoredProcedure;
-                    checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeNavn));
+                    checkEmployee.Parameters.Add(new SqlParameter("@Medarbejder", employeeName));
 
                     string Medarbejder = checkEmployee.ExecuteScalar()?.ToString();
                     string lower = Medarbejder.ToLower();
-                    string inputToLower = employeeNavn.ToLower();
+                    string inputToLower = employeeName.ToLower();
                     
                     if (lower == inputToLower)
                     {
@@ -94,7 +94,7 @@ namespace GettingReal_3
             }
         }
 
-        public void InsertToShift(string butikNavn, DateTime dato, string morgenAften, string medarbejder, DateTime startTid, DateTime slutTid, double antalTimer)
+        public void InsertToShift(string shopName, DateTime date, string morningAfternoon, string employee, DateTime shiftStart, DateTime shiftEnd, double numOfHours)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -103,13 +103,13 @@ namespace GettingReal_3
                 {
                     SqlCommand insertToShift = new SqlCommand("IndsætVagt", conn);
                     insertToShift.CommandType = CommandType.StoredProcedure;
-                    insertToShift.Parameters.Add(new SqlParameter("@ButikNavn", butikNavn));
-                    insertToShift.Parameters.Add(new SqlParameter("@Dato", dato));
-                    insertToShift.Parameters.Add(new SqlParameter("@MorgenAften", morgenAften));
-                    insertToShift.Parameters.Add(new SqlParameter("@Medarbejder", medarbejder));
-                    insertToShift.Parameters.Add(new SqlParameter("@startTid", startTid));
-                    insertToShift.Parameters.Add(new SqlParameter("@slutTid", slutTid));
-                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", antalTimer));
+                    insertToShift.Parameters.Add(new SqlParameter("@ButikNavn", shopName));
+                    insertToShift.Parameters.Add(new SqlParameter("@Dato", date));
+                    insertToShift.Parameters.Add(new SqlParameter("@MorgenAften", morningAfternoon));
+                    insertToShift.Parameters.Add(new SqlParameter("@Medarbejder", employee));
+                    insertToShift.Parameters.Add(new SqlParameter("@startTid", shiftStart));
+                    insertToShift.Parameters.Add(new SqlParameter("@slutTid", shiftEnd));
+                    insertToShift.Parameters.Add(new SqlParameter("@antalTimer", numOfHours));
                     insertToShift.ExecuteNonQuery();
 
                 }
@@ -122,7 +122,7 @@ namespace GettingReal_3
 
         }
 
-        public void PlanShift(string ButikNavn, DateTime dato, string MorgenAften, string Medarbejder)
+        public void PlanShift(string shopName, DateTime date, string morningAfternoon, string employee)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -132,10 +132,10 @@ namespace GettingReal_3
                 {
                     SqlCommand planShift = new SqlCommand("Planlæg", conn);
                     planShift.CommandType = CommandType.StoredProcedure;
-                    planShift.Parameters.Add(new SqlParameter("@ButikNavn", ButikNavn));
-                    planShift.Parameters.Add(new SqlParameter("@Dato", dato));
-                    planShift.Parameters.Add(new SqlParameter("@MorgenAften", MorgenAften));
-                    planShift.Parameters.Add(new SqlParameter("@Medarbejder", Medarbejder));
+                    planShift.Parameters.Add(new SqlParameter("@ButikNavn", shopName));
+                    planShift.Parameters.Add(new SqlParameter("@Dato", date));
+                    planShift.Parameters.Add(new SqlParameter("@MorgenAften", morningAfternoon));
+                    planShift.Parameters.Add(new SqlParameter("@Medarbejder", employee));
                     planShift.ExecuteNonQuery();
 
                 }
