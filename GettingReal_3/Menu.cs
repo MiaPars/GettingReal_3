@@ -64,12 +64,11 @@ namespace GettingReal_3
 
                     Console.Clear();
 
-                    Console.WriteLine("Vælg mellem 1-5");
+                    Console.WriteLine("Vælg mellem 1-4");
                     Console.WriteLine("1. Eksportér liste til Excel");
-                    Console.WriteLine("2. Tjek om vagter er taget");
-                    Console.WriteLine("3. Tilføj medarbejder");
-                    Console.WriteLine("4. Slet medarbejder");
-                    Console.WriteLine("5. Luk ned");
+                    Console.WriteLine("2. Tilføj medarbejder");
+                    Console.WriteLine("3. Slet medarbejder");
+                    Console.WriteLine("4. Luk ned");
 
                     Administration();
 
@@ -135,19 +134,14 @@ namespace GettingReal_3
                     break;
 
                 case 2:
-                    Console.WriteLine("2. Tjek om vagter er taget");
-
-                    break;
-
-                case 3:
-                    Console.WriteLine("3. Tilføj medarbejder");
+                    Console.WriteLine("2. Tilføj medarbejder");
 
                     admin.AddEmployee();
                     GoBack();
                     break;
 
                 case 4:
-                    Console.WriteLine("4. Slet medarbejder");
+                    Console.WriteLine("3. Slet medarbejder");
 
                     admin.RemoveEmployee();
                     GoBack();
@@ -155,7 +149,7 @@ namespace GettingReal_3
                     break;
 
                 case 5:
-                    Console.WriteLine("5. Luk ned");
+                    Console.WriteLine("4. Luk ned");
                     Environment.Exit(0);
                     break;
             }
