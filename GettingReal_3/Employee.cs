@@ -22,8 +22,7 @@ namespace GettingReal_3
         public DateTime ShiftDate { get; set; }
 
         private TimeSpan timespan = new TimeSpan(00, 00, 00);
-
-
+        
         public TimeSpan TotalHoursWorked
         {
             get { return timespan; }
