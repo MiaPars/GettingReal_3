@@ -98,5 +98,11 @@ namespace GettingReal_3
             Console.WriteLine(sb);
             return sb;
         }
+
+        public void EndedShifts()
+        {
+            sql.GetData();
+        }
     }
+    
 }

@@ -170,7 +170,7 @@ namespace GettingReal_3
 
                                 Console.Write("Butiknavn: " + Butiknavn + "\nDato: " + Dato + "\nMorgen eller Aften: " + 
                                     MorgenAften + "\nMedarbejder navn: " + Medarbejder + "\nStart tid: " + StartTid + "\nSlut tid: " +
-                                    SlutTid + "\nAntal timer arbejdet: " + AntalTimer);
+                                    SlutTid + "\nAntal timer arbejdet: " + AntalTimer + "\n");
                             Console.WriteLine();
                             
 

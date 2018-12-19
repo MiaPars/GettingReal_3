@@ -25,6 +25,10 @@ namespace GettingReal_3
         {
 
         }
+
+
+
+
         //public void ExportExcel()
         //{
         //    Gemme fra DB til Excel

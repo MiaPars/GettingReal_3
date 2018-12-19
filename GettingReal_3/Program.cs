@@ -25,8 +25,6 @@ namespace GettingReal_3
             //prog.Run();
 
 
-
-
             DateTime date1 = new DateTime(2008, 5, 1);
 
             string dateString = "8:30:52";
@@ -35,9 +33,12 @@ namespace GettingReal_3
             DateTime date5 = DateTime.Parse(datestring1);
 
             SQL sql = new SQL();
-            sql.InsertToShift("ng", date1, "morgen", "kat", date4, date5, 10);
-
             //sql.GetData();
+
+
+            //sql.InsertToShift("ng", date1, "aften", "kat", date4, date5, 12);
+
+            sql.GetData();
 
 
 
