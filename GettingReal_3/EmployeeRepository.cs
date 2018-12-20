@@ -16,7 +16,7 @@ namespace GettingReal_3
         {
             foreach (Employee item in employees)
             {
-                Console.WriteLine(item.Name);
+                Console.WriteLine(item.EmployeeName);
             }
             
         }
@@ -52,7 +52,7 @@ namespace GettingReal_3
 
             sql.DeleteEmployee(empName);
 
-            Console.WriteLine("Medarbejde er nu blevet slettet");
+            Console.WriteLine("Medarbejder er nu blevet slettet");
             Console.ReadKey();
         }
 
@@ -63,9 +63,9 @@ namespace GettingReal_3
 
             foreach (Employee item in employees)
             {
-                item.Name.ToLower();
+                item.EmployeeName.ToLower();
 
-                if (input.Equals(item.Name))
+                if (input.Equals(item.EmployeeName))
                 {
 
                     return item;

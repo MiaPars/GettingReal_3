@@ -12,10 +12,10 @@ namespace GettingReal_3
         private string name;
         public Employee(string name)
         {
-            Name = name;
+            EmployeeName = name;
         }
         public Employee() { }
-        public string Name
+        public string EmployeeName
         {
             get { return name; }
             set { name = value; }
