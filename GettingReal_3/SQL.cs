@@ -58,7 +58,6 @@ namespace GettingReal_3
             {
                 Console.WriteLine("Forkert navn");
             }
-
         }
 
         public Employee CheckEmployee(string employeeName)
@@ -111,15 +110,12 @@ namespace GettingReal_3
                     insertToShift.Parameters.Add(new SqlParameter("@slutTid", shiftEnd));
                     insertToShift.Parameters.Add(new SqlParameter("@antalTimer", numOfHours));
                     insertToShift.ExecuteNonQuery();
-
                 }
                 catch (SqlException e)
                 {
                     Console.WriteLine("Insert to shift fejl" + e.Message);
                 }
             }
-
-
         }
 
         public void PlanShift(string shopName, DateTime date, string morningAfternoon, string employee)
@@ -137,7 +133,6 @@ namespace GettingReal_3
                     planShift.Parameters.Add(new SqlParameter("@MorgenAften", morningAfternoon));
                     planShift.Parameters.Add(new SqlParameter("@Medarbejder", employee));
                     planShift.ExecuteNonQuery();
-
                 }
                 catch (SqlException e)
                 {
@@ -157,9 +152,7 @@ namespace GettingReal_3
                     using (SqlDataReader reader = getData.ExecuteReader())
                     {
                         while (reader.Read())
-                        {
-
-                           
+                        {                                                       
                                 string Butiknavn = reader["ButikNavn"].ToString();
                                 string Dato = reader["Dato"].ToString();
                                 string MorgenAften = reader["MorgenAften"].ToString();
@@ -171,15 +164,11 @@ namespace GettingReal_3
                                 Console.Write(Butiknavn +" "+ Dato + " " +
                                     MorgenAften + " " + Medarbejder + " " + StartTid + 
                                     SlutTid + " " + AntalTimer + "\n");
-                                Console.WriteLine();
-                            
-
+                                Console.WriteLine();                            
                         }
                     }
                 }
             }
-        }
-
-        
+        }        
     }
 }
