@@ -97,11 +97,10 @@ namespace GettingReal_3
                 input = Console.ReadLine();
             }
             //insætter til property
-            dataBase.CheckEmployee(input).Name = input;
-            
+            //dataBase.CheckEmployee(input).Name = input;
+
             Console.Clear();
             Console.WriteLine("Du har valgt: " + input);
-
             Console.WriteLine("Butikker: ");
 
             shift.AddStore();
@@ -109,7 +108,7 @@ namespace GettingReal_3
 
             Console.WriteLine("skriv butik navn: ");
             string butikInput = Console.ReadLine();
-
+            
             while (shift.CheckStore(butikInput) == null)
             {
                 Console.WriteLine("Du har intastet forkert butik navn, prøv igen: ");
@@ -126,7 +125,7 @@ namespace GettingReal_3
 
         public void EndedShifts()
         {
-
+            admEmp.EndedShifts();
         }
 
         public void Administration()
@@ -167,12 +166,7 @@ namespace GettingReal_3
         }
         public void PlanShift()
         {
-            Console.Clear();
-            Console.WriteLine("navn på butik: ");
-
-            Console.WriteLine("Dato: ");
-            Console.WriteLine("morgen eller aften:");
-            Console.WriteLine("navn: ");
+            admin.PlanShift();
         }
 
         public void AdminPass()

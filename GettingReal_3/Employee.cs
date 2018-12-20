@@ -9,6 +9,7 @@ namespace GettingReal_3
     public class Employee
     {
         private DateTime shiftDate;
+        private string name;
         public Employee(string name)
         {
             Name = name;
@@ -16,8 +17,8 @@ namespace GettingReal_3
         public Employee() { }
         public string Name
         {
-            get;
-            set;
+            get { return name; }
+            set { name = value; }
         }
         public DateTime ShiftDate { get; set; }
 

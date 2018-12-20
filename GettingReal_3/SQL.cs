@@ -79,6 +79,7 @@ namespace GettingReal_3
                     
                     if (lower == inputToLower)
                     {
+                        empl.Name = employeeName;
                         return empl;
                     }
                     else
@@ -156,28 +157,90 @@ namespace GettingReal_3
                 {
                     using (SqlDataReader reader = getData.ExecuteReader())
                     {
+                        Console.WriteLine("ButikNavn" + GetNumberOfSpaces("ButikNavn") + "Dato" + GetNumberOfSpaces("Dato") +
+                            "Morgen/Aften" + GetNumberOfSpaces("Morgen/Aften") +
+                            "Medarbejder" + GetNumberOfSpaces("Medarbejder") + "Start Tid" + 
+                            GetNumberOfSpaces("Start tid") + "SlutTid" + GetNumberOfSpaces("SlutTid") + "antal TImer\n");
+
                         while (reader.Read())
                         {
-
-                           
-                                string Butiknavn = reader["ButikNavn"].ToString();
-                                string Dato = reader["Dato"].ToString();
-                                string MorgenAften = reader["MorgenAften"].ToString();
-                                string Medarbejder = reader["Medarbejder"].ToString();
-                                string StartTid = reader["StartTid"].ToString();
-                                string SlutTid = reader["SlutTid"].ToString();
-                                string AntalTimer = reader["AntalTimer"].ToString();
-                                Console.WriteLine("ButikNavn " + "Dato " + "MorgenEllerAften " + "Medarbejder " + "Start Tid " + "SlutTid " + "antal TImer ");
-                                Console.Write(Butiknavn +" "+ Dato + " " +
-                                    MorgenAften + " " + Medarbejder + " " + StartTid + 
-                                    SlutTid + " " + AntalTimer + "\n");
-                                Console.WriteLine();
+                            string Butiknavn = reader["ButikNavn"].ToString();
+                            string Dato = reader["Dato"].ToString();
+                            string MorgenAften = reader["MorgenAften"].ToString();
+                            string Medarbejder = reader["Medarbejder"].ToString();
+                            string StartTid = reader["StartTid"].ToString();
+                            string SlutTid = reader["SlutTid"].ToString();
+                            string AntalTimer = reader["AntalTimer"].ToString();
+                            
+                            
+                            Console.WriteLine(Butiknavn + GetNumberOfSpaces(Butiknavn) + Dato + GetNumberOfSpaces(Dato) + MorgenAften 
+                                + GetNumberOfSpaces(MorgenAften) + Medarbejder + GetNumberOfSpaces(Medarbejder) + StartTid + 
+                                GetNumberOfSpaces(StartTid) + SlutTid + GetNumberOfSpaces(SlutTid) + AntalTimer);
                             
 
                         }
                     }
                 }
             }
+        }
+        public void GetEmployeeData(string e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                using (SqlCommand getData = new SqlCommand("UdskrivMedarbejderVagt", conn))
+                {
+                    using (SqlDataReader reader = getData.ExecuteReader())
+                    {
+                        Console.WriteLine("ButikNavn" + GetNumberOfSpaces("ButikNavn") + "Dato" + GetNumberOfSpaces("Dato") +
+                            "Morgen/Aften" + GetNumberOfSpaces("Morgen/Aften") +
+                            "Medarbejder" + GetNumberOfSpaces("Medarbejder") + "Start Tid" +
+                            GetNumberOfSpaces("Start tid") + "SlutTid" + GetNumberOfSpaces("SlutTid") + "antal TImer\n");
+
+                        while (reader.Read())
+                        {
+                            string Butiknavn = reader["ButikNavn"].ToString();
+                            string Dato = reader["Dato"].ToString();
+                            string MorgenAften = reader["MorgenAften"].ToString();
+                            string Medarbejder = reader["Medarbejder"].ToString();
+                            string StartTid = reader["StartTid"].ToString();
+                            string SlutTid = reader["SlutTid"].ToString();
+                            string AntalTimer = reader["AntalTimer"].ToString();
+
+
+                            Console.WriteLine(Butiknavn + GetNumberOfSpaces(Butiknavn) + Dato + GetNumberOfSpaces(Dato) + MorgenAften
+                                + GetNumberOfSpaces(MorgenAften) + Medarbejder + GetNumberOfSpaces(Medarbejder) + StartTid +
+                                GetNumberOfSpaces(StartTid) + SlutTid + GetNumberOfSpaces(SlutTid) + AntalTimer);
+                            
+                        }
+                    }
+                    
+                }
+                using (SqlCommand getHoursWorked = new SqlCommand("UdskrivAntalTimerArbejdet", conn))
+                {
+
+                    getHoursWorked.CommandType = CommandType.StoredProcedure;
+                    getHoursWorked.Parameters.Add(new SqlParameter("@Medarbejder", e));
+
+                    using (SqlDataReader newReader = getHoursWorked.ExecuteReader())
+                    {
+
+                        Console.WriteLine("Antal timer arbejdet: ");
+                        while (newReader.Read())
+                        {
+
+                            string AntalTimerArbejdet = newReader["AntalTimerArbejdet"].ToString();
+                            Console.WriteLine("Antal timer arbejdet: " + AntalTimerArbejdet);
+                        }
+                    }
+                }
+            }
+        }
+        public string GetNumberOfSpaces(string columnText)
+        {
+            int i = 15 - columnText.Length;
+            string spaces = new string(' ', i);
+            return spaces;
         }
 
         

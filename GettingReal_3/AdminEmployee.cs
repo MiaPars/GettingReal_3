@@ -9,11 +9,10 @@ namespace GettingReal_3
     public class AdminEmployee
     {
         Shift shift = new Shift();
-        Store store = new Store();
-        Employee employee = new Employee();
         SQL sql = new SQL();
-        public void RegisterHours(Employee employeee, Store stoore)
+        public void RegisterHours(Employee e, Store s)
         {
+
             Console.WriteLine("intast morgen eller aften: ");
             string morgenAften = Console.ReadLine();
             morgenAften.ToLower();
@@ -56,25 +55,29 @@ namespace GettingReal_3
             if (monthAsNum <= 12 && monthAsNum >= 1 && dayAsNum <= 31 && dayAsNum >= 1)
             {
                 dag = DateTime.Parse(ShiftDate);
-                this.employee.ShiftDate = dag;
+                dag.ToShortDateString();
+                e.ShiftDate = dag;
             }
 
             startTime = DateTime.Parse(startTid.ToString());
             endTime = DateTime.Parse(slutTid.ToString());
+
+            startTime.ToShortTimeString();
+            endTime.ToShortTimeString();
 
             //insæt til properties:
             shift.Day = dag;
             shift.StartTime = startTime;
             shift.EndTime = endTime;
             
-            TimeSpan s = shift.Timer(startTid.ToString(), slutTid.ToString());
-            employee.TotalHoursWorked = s;
+            TimeSpan timespan = shift.Timer(startTid.ToString(), slutTid.ToString());
+            e.TotalHoursWorked = timespan;
 
             //insætter til sql:
-            sql.InsertToShift(stoore.StoreName, shift.Day, morgenAften, employeee.Name, shift.StartTime, shift.EndTime, employee.TotalHoursToDouble());
+            sql.InsertToShift(s.StoreName, shift.Day, morgenAften, e.Name, shift.StartTime, shift.EndTime, e.TotalHoursToDouble());
 
         }
-        private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
+        public StringBuilder InputDateTime(string startString, char ignoreChar, string message)
         {
             string start = startString;
 
