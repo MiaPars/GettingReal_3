@@ -11,10 +11,10 @@ namespace GettingReal_3
         private DateTime shiftDate;
         public Employee(string name)
         {
-            Name = name;
+            EmployeeName = name;
         }
         public Employee() { }
-        public string Name
+        public string EmployeeName
         {
             get;
             set;

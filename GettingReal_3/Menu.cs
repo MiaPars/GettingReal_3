@@ -12,8 +12,6 @@ namespace GettingReal_3
         Admin admin = new Admin();
         AdminEmployee admEmp = new AdminEmployee();
         Shift shift = new Shift();
-        Store store = new Store();
-        EmployeeRepository empRepo = new EmployeeRepository();
         SQL dataBase = new SQL();
         Program program = new Program();
 
@@ -97,7 +95,7 @@ namespace GettingReal_3
                 input = Console.ReadLine();
             }
             //insætter til property
-            dataBase.CheckEmployee(input).Name = input;
+            dataBase.CheckEmployee(input).EmployeeName = input;
             
             Console.Clear();
             Console.WriteLine("Du har valgt: " + input);

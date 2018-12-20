@@ -9,10 +9,9 @@ namespace GettingReal_3
     public class AdminEmployee
     {
         Shift shift = new Shift();
-        Store store = new Store();
         Employee employee = new Employee();
         SQL sql = new SQL();
-        public void RegisterHours(Employee employeee, Store stoore)
+        public void RegisterHours(Employee employeee, Store store)
         {
             Console.WriteLine("intast morgen eller aften: ");
             string morgenAften = Console.ReadLine();
@@ -71,7 +70,7 @@ namespace GettingReal_3
             employee.TotalHoursWorked = s;
 
             //insætter til sql:
-            sql.InsertToShift(stoore.StoreName, shift.Day, morgenAften, employeee.Name, shift.StartTime, shift.EndTime, employee.TotalHoursToDouble());
+            sql.InsertToShift(store.StoreName, shift.Day, morgenAften, employeee.EmployeeName, shift.StartTime, shift.EndTime, employee.TotalHoursToDouble());
 
         }
         private StringBuilder InputDateTime(string startString, char ignoreChar, string message)
