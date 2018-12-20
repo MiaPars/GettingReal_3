@@ -167,11 +167,11 @@ namespace GettingReal_3
                                 string StartTid = reader["StartTid"].ToString();
                                 string SlutTid = reader["SlutTid"].ToString();
                                 string AntalTimer = reader["AntalTimer"].ToString();
-
-                                Console.Write("Butiknavn: " + Butiknavn + "\nDato: " + Dato + "\nMorgen eller Aften: " + 
-                                    MorgenAften + "\nMedarbejder navn: " + Medarbejder + "\nStart tid: " + StartTid + "\nSlut tid: " +
-                                    SlutTid + "\nAntal timer arbejdet: " + AntalTimer + "\n");
-                            Console.WriteLine();
+                                Console.WriteLine("ButikNavn " + "Dato " + "MorgenEllerAften " + "Medarbejder " + "Start Tid " + "SlutTid " + "antal TImer ");
+                                Console.Write(Butiknavn +" "+ Dato + " " +
+                                    MorgenAften + " " + Medarbejder + " " + StartTid + 
+                                    SlutTid + " " + AntalTimer + "\n");
+                                Console.WriteLine();
                             
 
                         }

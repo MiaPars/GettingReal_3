@@ -25,12 +25,12 @@ namespace GettingReal_3
             //prog.Run();
 
 
-            DateTime date1 = new DateTime(2008, 5, 1);
+            //DateTime date1 = new DateTime(2008, 5, 1);
 
-            string dateString = "8:30:52";
-            string datestring1 = "9:30:34";
-            DateTime date4 = DateTime.Parse(dateString);
-            DateTime date5 = DateTime.Parse(datestring1);
+            //string dateString = "8:30:52";
+            //string datestring1 = "9:30:34";
+            //DateTime date4 = DateTime.Parse(dateString);
+            //DateTime date5 = DateTime.Parse(datestring1);
 
             SQL sql = new SQL();
             //sql.GetData();

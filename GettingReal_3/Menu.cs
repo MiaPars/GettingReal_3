@@ -46,7 +46,7 @@ namespace GettingReal_3
             {
                 case 1:
 
-                    Console.WriteLine("Registrer Timer: ");
+                    Console.WriteLine("Registrer Timer ");
                     RegisterHoursMenu();
                     break;
 
@@ -97,9 +97,8 @@ namespace GettingReal_3
                 input = Console.ReadLine();
             }
             //insætter til property
-            Employee enEmp = new Employee();
-            enEmp.Name = input;
-
+            dataBase.CheckEmployee(input).Name = input;
+            
             Console.Clear();
             Console.WriteLine("Du har valgt: " + input);
 
@@ -116,13 +115,13 @@ namespace GettingReal_3
                 Console.WriteLine("Du har intastet forkert butik navn, prøv igen: ");
                 butikInput = Console.ReadLine();
             }
-            store.StoreName = butikInput;
+            shift.CheckStore(butikInput).StoreName = butikInput;
 
             Console.Clear();
             Console.WriteLine("du har valgt " + butikInput + "-butikken");
 
 
-            admEmp.RegisterHours(enEmp, shift.CheckStore(butikInput));
+            admEmp.RegisterHours(dataBase.CheckEmployee(input), shift.CheckStore(butikInput));
         }
 
         public void EndedShifts()
