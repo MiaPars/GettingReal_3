@@ -38,7 +38,7 @@ namespace GettingReal_3
         {
             for (int i = 0; i < storeList.Count; i++)
             {
-                Console.WriteLine(i + 1 + ": " + storeList[i].ToString());
+                Console.WriteLine(i + 1 + ": " + storeList[i].StoreName.ToString());
             }
         }
         

@@ -8,7 +8,6 @@ namespace GettingReal_3
 {
     public class Employee
     {
-        private DateTime shiftDate;
         private string name;
         public Employee(string name)
         {

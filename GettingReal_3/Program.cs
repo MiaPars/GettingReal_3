@@ -11,12 +11,10 @@ namespace GettingReal_3
         static void Main(string[] args)
         {
 
-            //Console.CursorVisible = false;
-            //Program prog = new Program();
-            //prog.Run();
+            Console.CursorVisible = false;
+            Program prog = new Program();
+            prog.Run();
 
-            SQL s = new SQL();
-            s.GetEmployeeData("kat");
 
         }
         public void Run()

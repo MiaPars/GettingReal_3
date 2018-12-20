@@ -13,8 +13,6 @@ namespace GettingReal_3
         {
             StoreName = storeName;
         }
-        // employee repo
-        // employee admin
 
         public Store() { }
         public string StoreName

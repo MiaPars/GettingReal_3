@@ -201,7 +201,6 @@ namespace GettingReal_3
                 Console.WriteLine("Kodeord godkendt!");
 
             }
-
         }
         public void GoBack()
         {
@@ -215,10 +214,6 @@ namespace GettingReal_3
                 Environment.Exit(0);
             }
         }
-
-        
     }
-
-
 }
 

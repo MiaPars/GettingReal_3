@@ -74,7 +74,7 @@ namespace GettingReal_3
             e.TotalHoursWorked = timespan;
 
             //insætter til sql:
-            sql.InsertToShift(s.StoreName, shift.Day, morgenAften, e.Name, shift.StartTime, shift.EndTime, e.TotalHoursToDouble());
+            sql.InsertToShift(s.StoreName, shift.Day, morgenAften, e.EmployeeName, shift.StartTime, shift.EndTime, e.TotalHoursToDouble());
 
         }
         public StringBuilder InputDateTime(string startString, char ignoreChar, string message)
@@ -104,7 +104,17 @@ namespace GettingReal_3
 
         public void EndedShifts()
         {
-            sql.GetData();
+            Console.WriteLine("intast navn: ");
+            string inputName = Console.ReadLine();
+            while (sql.CheckEmployee(inputName) == null)
+            {
+                Console.Clear();
+                Console.WriteLine("du har intastet et forkert navn, prøv igen: ");
+                inputName = Console.ReadLine();
+            }
+            Console.WriteLine();
+            sql.GetEmployeeData(inputName);
+            Console.WriteLine();
         }
     }
     

@@ -9,7 +9,6 @@ namespace GettingReal_3
     public class Admin
     {
         EmployeeRepository RepoEmp = new EmployeeRepository();
-        Program p = new Program();
         SQL sql = new SQL();
         Shift shift = new Shift();
         AdminEmployee adminEmp = new AdminEmployee();
@@ -18,7 +17,6 @@ namespace GettingReal_3
         {
             RepoEmp.AddEmployee();
             Console.Clear();
-            p.Run();
         }
 
         public void RemoveEmployee()
@@ -88,7 +86,7 @@ namespace GettingReal_3
             //insætter til property
             //dataBase.CheckEmployee(input).Name = input;
 
-            sql.PlanShift(butikInput, e.ShiftDate, morgenAften, sql.CheckEmployee(input).Name);
+            sql.PlanShift(butikInput, e.ShiftDate, morgenAften, sql.CheckEmployee(input).EmployeeName);
 
             Console.WriteLine("Vagt planlagt");
         }
