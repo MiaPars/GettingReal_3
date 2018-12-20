@@ -31,7 +31,7 @@ namespace GettingReal_3
 
         //public void ExportExcel()
         //{
-        //    Gemme fra DB til Excel
+        //    Gemme fra C# til Excel
         //    Kopieret fra nettet
         //    OdbcConnection connection = new OdbcConnection(@"Driver={Microsoft Excel Driver (*.xls)};DriverId=790;Dbq=" + xlsFilePath + "; ReadOnly=False; DefaultDir=" + xlsDir + ";");
         //    then you can create a IDbCommand like this: IDbCommand command = connection.CreateCommand();

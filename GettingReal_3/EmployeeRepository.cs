@@ -28,7 +28,7 @@ namespace GettingReal_3
             sql.InsertToEmployee(empName);
 
             //ved ikke om vi har brug for listen
-            employees.Add(new Employee(empName));
+            employees.Add(new Employee(empName));   
             
             Console.WriteLine("Medarbejder tilføjet");
             Console.ReadKey();
