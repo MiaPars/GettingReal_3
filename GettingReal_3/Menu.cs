@@ -89,15 +89,12 @@ namespace GettingReal_3
             Console.Write("Indtast navn: ");
             string input = Console.ReadLine();
 
-            //tjekker i databasen om det er rigtigt navn
             while (dataBase.CheckEmployee(input) == null)
             {
                 Console.Clear();
                 Console.WriteLine("Du har intastet forkert navn, prøv igen: ");
                 input = Console.ReadLine();
             }
-            //insætter til property
-            //dataBase.CheckEmployee(input).Name = input;
 
             Console.Clear();
             Console.WriteLine("Du har valgt: " + input);

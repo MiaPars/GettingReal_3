@@ -113,6 +113,7 @@ namespace GettingReal_3
                     insertToShift.Parameters.Add(new SqlParameter("@slutTid", shiftEnd));
                     insertToShift.Parameters.Add(new SqlParameter("@antalTimer", numOfHours));
                     insertToShift.ExecuteNonQuery();
+                    Console.Clear();
                     Console.WriteLine("Din vagt er Registreret");
                 }
                 catch (SqlException e)
