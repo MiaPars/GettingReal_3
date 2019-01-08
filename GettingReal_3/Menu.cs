@@ -183,6 +183,10 @@ namespace GettingReal_3
                 {
                     pw = 0;
                     counter++;
+                    if (counter < 3)
+                    {
+                        Console.WriteLine("Forkert kodeord, prøv igen");
+                    }
                 }
             }
             while (password != "1234" && (counter != 3));
