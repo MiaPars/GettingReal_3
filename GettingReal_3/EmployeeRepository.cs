@@ -19,6 +19,7 @@ namespace GettingReal_3
             sql.InsertToEmployee(empName);
             
             Console.WriteLine("Medarbejder tilføjet");
+            Console.ReadKey();
             
         }
 
