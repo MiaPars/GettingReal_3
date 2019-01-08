@@ -10,6 +10,8 @@ namespace GettingReal_3
     {
         static void Main(string[] args)
         {
+            
+
             Console.CursorVisible = false;
             Program prog = new Program();
             prog.Run();

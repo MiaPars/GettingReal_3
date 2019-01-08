@@ -104,8 +104,14 @@ namespace GettingReal_3
 
         public void EndedShifts()
         {
-            Console.WriteLine("intast navn: ");
+            Console.WriteLine("intast navn: \nFor at se alle afsluttede vagter, så skriv: alle");
             string inputName = Console.ReadLine();
+
+            if (inputName.Equals("alle"))
+            {
+                sql.GetData();
+            }
+
             while (sql.CheckEmployee(inputName) == null)
             {
                 Console.Clear();
